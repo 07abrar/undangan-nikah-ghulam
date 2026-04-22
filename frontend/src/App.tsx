@@ -1,5 +1,6 @@
-import RSVP from "./pages/RSVP"
-import Wishes from "./pages/Wishes"
+import CoupleProfile from "./pages/CoupleProfile";
+import RSVP from "./pages/RSVP";
+import Wishes from "./pages/Wishes";
 
 function App() {
   return (
@@ -9,9 +10,13 @@ function App() {
       </div>
       <div>
         <nav>
+          <a href="#couple_profile">Calon Mempelai</a>
           <a href="#wishes">Wishes</a>
           <a href="#rsvp">RSVP</a>
         </nav>
+        <section id="couple_profile">
+          <CoupleProfile />
+        </section>
         <section id="wishes">
           <Wishes />
         </section>
@@ -20,7 +25,7 @@ function App() {
         </section>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
