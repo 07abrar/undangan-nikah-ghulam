@@ -7,7 +7,7 @@ export default function CoupleProfile() {
       <div id="bride_profile">
         <img src="" alt="Yasmin Farhana" />
         <h3>Yasmin Farhana, S.Si.</h3>
-        <p>Putri kedua dari Bapak Prof. Dr. Ir. Husni, M.Agric.Sc (alm)</p>
+        <p>Putri kedua dari Bapak Prof. Dr. Ir. Husni, M.Agric.Sc., (alm)</p>
         <p>&amp; Ibu Rida Defriana</p>
         <p>Ibu Yasmin (alm)</p>
       </div>
