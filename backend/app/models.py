@@ -9,18 +9,11 @@ class AttendingChoice(str, Enum):
     TIDAK_HADIR = "tidak_hadir"
     MUNGKIN = "mungkin"
 
-class Wish(Base):
-    __tablename__ = "wishes"
-
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    message = Column(String, nullable=False)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
 class RSVP(Base):
     __tablename__ = "rsvps"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
-    attending = Column(SQLEnum(AttendingChoice), nullable=False)
+    attending = Column(SQLEnum(AttendingChoice), nullable=True)
+    message = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
