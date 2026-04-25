@@ -1,7 +1,7 @@
-// App.tsx
-import CoupleProfile from "./pages/CoupleProfile";
-import RSVP from "./pages/RSVP";
 import styles from "./App.module.css";
+import CoupleProfile from "./pages/CoupleProfile";
+import Cover from "./pages/Cover";
+import RSVP from "./pages/RSVP";
 
 function App() {
   return (
@@ -11,6 +11,9 @@ function App() {
       </header>
 
       <nav className={styles.nav}>
+        <a href="#cover" className={styles.navLink}>
+          Cover
+        </a>
         <a href="#couple_profile" className={styles.navLink}>
           Calon Mempelai
         </a>
@@ -19,6 +22,9 @@ function App() {
         </a>
       </nav>
 
+      <section id="cover" className={styles.section}>
+        <Cover />
+      </section>
       <section id="couple_profile" className={styles.section}>
         <CoupleProfile />
       </section>

@@ -15,3 +15,9 @@ class RSVPResponse(RSVPRequest):
 
     class Config:
         from_attributes = True
+
+class GuestResponse(BaseModel):
+    name: str
+
+    class Config:
+        from_attributes = True
