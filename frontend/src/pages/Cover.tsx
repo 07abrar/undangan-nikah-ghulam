@@ -1,10 +1,28 @@
+import { useEffect, useState } from "react";
 import styles from "./Cover.module.css";
 
-// TODO: fetch the guest name from the backend later
-// (e.g. read a token from the URL like ?to=abc123, then GET /api/guests/abc123)
-const guestName = "Tamu Undangan";
+const FALLBACK_NAME = "Tamu Undangan";
 
 export default function Cover() {
+  const [guestName, setGuestName] = useState(FALLBACK_NAME);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("to");
+
+    if (!token) return;
+
+    fetch(`/api/guests/${token}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Guest not found");
+        return res.json();
+      })
+      .then((data) => setGuestName(data.name))
+      .catch(() => {
+        // invalid token → keep fallback
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
       <p className={styles.eyebrow}>Pernikahan</p>
