@@ -12,15 +12,23 @@ export default function Cover() {
 
     if (!token) return;
 
-    fetch(`/api/guests/${token}`)
+    const controller = new AbortController();
+
+    fetch(`/api/guests/${encodeURIComponent(token)}`, {
+      signal: controller.signal,
+    })
       .then((res) => {
         if (!res.ok) throw new Error("Guest not found");
         return res.json();
       })
       .then((data) => setGuestName(data.name))
-      .catch(() => {
+      .catch((err) => {
+        // Aborted on unmount — not a real error
+        if (err.name === "AbortError") return;
         // invalid token → keep fallback
       });
+
+    return () => controller.abort();
   }, []);
 
   return (

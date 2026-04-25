@@ -1,5 +1,4 @@
-// RSVP.tsx
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./RSVP.module.css";
 
 const AttendingStatus = {
@@ -41,20 +40,26 @@ function getInitials(name: string): string {
 }
 
 function getAttendingLabel(status: AttendingStatus): string {
-  return {
-    [AttendingStatus.HADIR]: "Hadir",
-    [AttendingStatus.TIDAK_HADIR]: "Tidak Hadir",
-    [AttendingStatus.MUNGKIN]: "Mungkin",
-  }[status];
+  switch (status) {
+    case AttendingStatus.HADIR:
+      return "Hadir";
+    case AttendingStatus.TIDAK_HADIR:
+      return "Tidak Hadir";
+    case AttendingStatus.MUNGKIN:
+      return "Mungkin";
+  }
 }
 
 // Returns the right CSS Module class name for each status
 function getBadgeClass(status: AttendingStatus): string {
-  return {
-    [AttendingStatus.HADIR]: styles.badgeHadir,
-    [AttendingStatus.TIDAK_HADIR]: styles.badgeTidakHadir,
-    [AttendingStatus.MUNGKIN]: styles.badgeMungkin,
-  }[status];
+  switch (status) {
+    case AttendingStatus.HADIR:
+      return styles.badgeHadir;
+    case AttendingStatus.TIDAK_HADIR:
+      return styles.badgeTidakHadir;
+    case AttendingStatus.MUNGKIN:
+      return styles.badgeMungkin;
+  }
 }
 
 export default function RSVP() {
@@ -104,7 +109,7 @@ export default function RSVP() {
       setAttending(null);
       setMessage(null);
     } catch (err) {
-      setError((err as Error).message);
+      setError(err instanceof Error ? err.message : "Unknown error");
     } finally {
       setSubmitting(false);
     }
@@ -148,7 +153,7 @@ export default function RSVP() {
           Komentar atau Ucapan
           <textarea
             value={message ?? ""}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value || null)}
             placeholder="Komentar atau Ucapan"
             rows={4}
             className={styles.textarea}
