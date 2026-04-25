@@ -3,10 +3,17 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
+import Greetings from "./pages/Greetings";
 import RSVP from "./pages/RSVP";
 import Quote from "./pages/Quote";
 
-const SECTION_IDS = ["cover", "quote", "couple_profile", "rsvp"] as const;
+const SECTION_IDS = [
+  "cover",
+  "quote",
+  "greetings",
+  "couple_profile",
+  "rsvp",
+] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
 function App() {
@@ -51,6 +58,9 @@ function App() {
           <a href="#quote" className={styles.navLink}>
             Quote
           </a>
+          <a href="#greetings" className={styles.navLink}>
+            Salam
+          </a>
           <a href="#couple_profile" className={styles.navLink}>
             Calon Mempelai
           </a>
@@ -66,6 +76,9 @@ function App() {
         </section>
         <section id="quote" className={styles.section}>
           <Quote />
+        </section>
+        <section id="greetings" className={styles.section}>
+          <Greetings />
         </section>
         <section id="couple_profile" className={styles.section}>
           <CoupleProfile />
