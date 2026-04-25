@@ -5,6 +5,7 @@ import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
 import Greetings from "./pages/Greetings";
 import RSVP from "./pages/RSVP";
+import Story from "./pages/Story";
 import Quote from "./pages/Quote";
 
 const SECTION_IDS = [
@@ -12,6 +13,7 @@ const SECTION_IDS = [
   "quote",
   "greetings",
   "couple_profile",
+  "story",
   "rsvp",
 ] as const;
 type SectionId = (typeof SECTION_IDS)[number];
@@ -64,6 +66,9 @@ function App() {
           <a href="#couple_profile" className={styles.navLink}>
             Calon Mempelai
           </a>
+          <a href="#story" className={styles.navLink}>
+            Kisah
+          </a>
           <a href="#rsvp" className={styles.navLink}>
             RSVP
           </a>
@@ -82,6 +87,9 @@ function App() {
         </section>
         <section id="couple_profile" className={styles.section}>
           <CoupleProfile />
+        </section>
+        <section id="story" className={styles.section}>
+          <Story />
         </section>
         <section id="rsvp" className={styles.section}>
           <RSVP />
