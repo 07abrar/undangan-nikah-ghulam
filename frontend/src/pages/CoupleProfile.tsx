@@ -8,7 +8,7 @@ export default function CoupleProfile() {
 
       <img
         src={coupleImage}
-        alt="wedding illustration"
+        alt="Ilustrasi Yasmin dan Ghulam dalam pakaian pernikahan"
         className={styles.image}
       />
 
@@ -22,6 +22,12 @@ export default function CoupleProfile() {
           <p className={styles.parents}>&amp; Ibu Rida Defriana</p>
           <p className={styles.parents}>Ibunda Almarhumah Yasmin</p>
         </div>
+
+        {/* aria-hidden because the ampersand is purely decorative —
+            screen readers don't need to announce it. */}
+        <span className={styles.ampersand} aria-hidden="true">
+          &amp;
+        </span>
 
         {/* Groom — right */}
         <div id="groom_profile" className={styles.profile}>

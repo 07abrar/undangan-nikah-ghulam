@@ -9,29 +9,54 @@
 
 .image {
   display: block;
-  /* For a portrait illustration, cap the height — that's what makes the
-     image feel "big". max-width: 100% just prevents overflow on narrow
-     screens. width/height: auto lets the browser scale proportionally
-     within those two bounds, preserving the aspect ratio. */
   max-width: 100%;
-  max-height: 280px;
+  max-height: 320px;
   width: auto;
   height: auto;
-  margin: 0 auto var(--space-xl);
-  border-radius: var(--radius-md);
+  margin: 0 auto;
+  /* Stacking: image z-index 2 sits ABOVE the cards (z-index 1).
+     Where the PNG is opaque (the figures), it covers the card tops.
+     Where the PNG is transparent (the corners), the white card
+     backgrounds show through. */
+  position: relative;
+  z-index: 2;
+}
+
+.ampersand {
+  /* Lives in the middle (auto-width) column of the grid, between the
+     two profile cards. align-items: center on the grid vertically
+     centers it next to the cards. */
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-accent);
+  padding: 0 var(--space-xs);
 }
 
 .grid {
+  /* 1fr auto 1fr puts the ampersand in a self-sized middle column
+     while the two profile cards split the remaining space equally.
+     align-items: center vertically centers the ampersand between
+     the cards regardless of which is taller. */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   gap: var(--space-md);
+  /* Negative top margin pulls the cards up into the image's bottom
+     edge. The image's z-index 2 keeps the figures visible on top of
+     the card tops. */
+  margin-top: -28px;
+  position: relative;
+  z-index: 1;
 }
 
 .profile {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
   display: flex;
   flex-direction: column;
 }
@@ -51,9 +76,6 @@
 }
 
 .socialLink {
-  /* margin-top: auto pushes the link to the bottom of the card so the
-     groom card aligns visually with the bride card when they have different
-     amounts of text. align-self centers it horizontally inside the column. */
   margin-top: auto;
   align-self: center;
   padding: 6px 16px;
