@@ -14,8 +14,8 @@ export default function Quote() {
 
       <p className={styles.translation}>
         "Dan di antara tanda-tanda kekuasaan Allah ialah Dia menciptakan untukmu
-        pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan
-        merasa tenteram kepadanya"
+        pasangan-pasangan dari jenismu sendiri, agar kamu cenderung dan merasa
+        tenteram kepadanya"
       </p>
 
       <p className={styles.source}>(QS. Ar-Ruum: 21)</p>
