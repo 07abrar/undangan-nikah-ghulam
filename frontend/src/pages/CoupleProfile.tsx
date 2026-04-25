@@ -4,11 +4,9 @@ import styles from "./CoupleProfile.module.css";
 export default function CoupleProfile() {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Mempelai</h2>
-
       <img
         src={coupleImage}
-        alt="Ilustrasi Yasmin dan Ghulam dalam pakaian pernikahan"
+        alt="Wedding illustration"
         className={styles.image}
       />
 
