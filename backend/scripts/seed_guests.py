@@ -17,11 +17,14 @@ Output CSV (guests_with_links.csv):
     ...
 """
 
+import argparse
 import csv
 import secrets
 import string
 import sys
 from pathlib import Path
+
+from sqlalchemy.orm import Session
 
 # Allow importing from the parent backend/ directory
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -33,37 +36,62 @@ BASE_URL = "http://localhost:5173"
 TOKEN_LENGTH = 6
 TOKEN_ALPHABET = string.ascii_lowercase + string.digits
 
+MAX_TOKEN_ATTEMPTS = 10
 
-def generate_token(db, max_attempts: int = 10) -> str:
-    """Generate a unique 6-char token. Retries on the collision."""
-    for _ in range(max_attempts):
+
+class TokenCollisionError(Exception):
+    """Raised when a unique token cannot be generated within the attempt budget."""
+
+
+def generate_token(existing_tokens: set[str]) -> str:
+    """Generate a token of length TOKEN_LENGTH not present in existing_tokens."""
+    for _ in range(MAX_TOKEN_ATTEMPTS):
         token = "".join(secrets.choice(TOKEN_ALPHABET) for _ in range(TOKEN_LENGTH))
-        if not db.query(Guest).filter(Guest.token == token).first():
+        if token not in existing_tokens:
             return token
-    raise RuntimeError("Could not generate a unique token after multiple attempts")
+    raise TokenCollisionError(
+        f"Could not generate a unique token after {MAX_TOKEN_ATTEMPTS} attempts"
+    )
 
 
-def main(input_path: str):
-    input_file = Path(input_path)
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Seed guests from a CSV file.")
+    parser.add_argument(
+        "input_csv",
+        type=Path,
+        help="Path to the input CSV file containing a 'name' column.",
+    )
+    return parser.parse_args()
+
+
+def main(input_file: Path) -> None:
     output_file = input_file.with_name("guests_with_links.csv")
 
-    db = SessionLocal()
-    rows_out = []
+    db: Session = SessionLocal()
+    output_rows: list[dict[str, str]] = []
 
     try:
+        existing_guests: dict[str, Guest] = {g.name: g for g in db.query(Guest).all()}
+        existing_tokens: set[str] = {g.token for g in existing_guests.values()}
+
+        seen_names: set[str] = set()
         with input_file.open(newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 name = row["name"].strip()
-                if not name:
+                if not name or name in seen_names:
                     continue
+                seen_names.add(name)
 
-                token = generate_token(db)
-                guest = Guest(token=token, name=name)
-                db.add(guest)
-                db.flush()  # token uniqueness is checked before next iteration
+                existing = existing_guests.get(name)
+                if existing is not None:
+                    token = existing.token
+                else:
+                    token = generate_token(existing_tokens)
+                    existing_tokens.add(token)
+                    db.add(Guest(token=token, name=name))
 
-                rows_out.append({
+                output_rows.append({
                     "name": name,
                     "token": token,
                     "url": f"{BASE_URL}/?to={token}",
@@ -79,14 +107,12 @@ def main(input_path: str):
     with output_file.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["name", "token", "url"])
         writer.writeheader()
-        writer.writerows(rows_out)
+        writer.writerows(output_rows)
 
-    print(f"Seeded {len(rows_out)} guests")
+    print(f"Seeded {len(output_rows)} guests")
     print(f"Links written to: {output_file}")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python scripts/seed_guests.py <input.csv>")
-        sys.exit(1)
-    main(sys.argv[1])
+    args = parse_args()
+    main(args.input_csv)
