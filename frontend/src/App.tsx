@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
+import EventDetails from "./pages/EventDetails";
 import Greetings from "./pages/Greetings";
 import RSVP from "./pages/RSVP";
 import Story from "./pages/Story";
@@ -13,6 +14,7 @@ const SECTION_IDS = [
   "quote",
   "greetings",
   "couple_profile",
+  "event_details",
   "story",
   "rsvp",
 ] as const;
@@ -66,6 +68,9 @@ function App() {
           <a href="#couple_profile" className={styles.navLink}>
             Calon Mempelai
           </a>
+          <a href="#event_details" className={styles.navLink}>
+            Detail Acara
+          </a>
           <a href="#story" className={styles.navLink}>
             Kisah
           </a>
@@ -87,6 +92,9 @@ function App() {
         </section>
         <section id="couple_profile" className={styles.section}>
           <CoupleProfile />
+        </section>
+        <section id="event_details" className={styles.section}>
+          <EventDetails />
         </section>
         <section id="story" className={styles.section}>
           <Story />

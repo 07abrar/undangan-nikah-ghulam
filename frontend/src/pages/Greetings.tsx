@@ -12,8 +12,7 @@ export default function Greetings() {
       </p>
 
       <p className={styles.invitation}>
-        Tanpa mengurangi rasa hormat, kami bermaksud mengundang
-        Bapak/Ibu/Saudara(i) pada acara pernikahan kami.
+        Kami mengundang Bapak/Ibu/Saudara(i) pada acara pernikahan kami.
       </p>
     </div>
   );
