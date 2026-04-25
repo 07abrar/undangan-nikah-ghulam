@@ -2,6 +2,7 @@ import styles from "./App.module.css";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
 import RSVP from "./pages/RSVP";
+import Quote from "./pages/Quote";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <a href="#cover" className={styles.navLink}>
           Cover
         </a>
+        <a href="#quote" className={styles.navLink}>
+          Quote
+        </a>
         <a href="#couple_profile" className={styles.navLink}>
           Calon Mempelai
         </a>
@@ -24,6 +28,9 @@ function App() {
 
       <section id="cover" className={styles.section}>
         <Cover />
+      </section>
+      <section id="quote" className={styles.section}>
+        <Quote />
       </section>
       <section id="couple_profile" className={styles.section}>
         <CoupleProfile />
