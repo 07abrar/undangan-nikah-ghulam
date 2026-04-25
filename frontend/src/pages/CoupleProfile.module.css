@@ -7,47 +7,59 @@
   margin-bottom: var(--space-xl);
 }
 
+.image {
+  display: block;
+  /* For a portrait illustration, cap the height — that's what makes the
+     image feel "big". max-width: 100% just prevents overflow on narrow
+     screens. width/height: auto lets the browser scale proportionally
+     within those two bounds, preserving the aspect ratio. */
+  max-width: 100%;
+  max-height: 280px;
+  width: auto;
+  height: auto;
+  margin: 0 auto var(--space-xl);
+  border-radius: var(--radius-md);
+}
+
 .grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
 }
 
 .profile {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-xl) var(--space-lg);
-}
-
-.avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--color-border-soft);
-  display: block;
-  margin: 0 auto var(--space-md);
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
-  font-size: 1.3rem;
+  font-size: 1.05rem;
   margin-bottom: var(--space-md);
+  overflow-wrap: break-word;
 }
 
 .parents {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
   margin: var(--space-xs) 0;
+  line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 .socialLink {
-  display: inline-block;
-  margin-top: var(--space-md);
-  padding: 6px 18px;
+  /* margin-top: auto pushes the link to the bottom of the card so the
+     groom card aligns visually with the bride card when they have different
+     amounts of text. align-self centers it horizontally inside the column. */
+  margin-top: auto;
+  align-self: center;
+  padding: 6px 16px;
   border: 1px solid var(--color-primary);
   border-radius: var(--radius-pill);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-decoration: none;
   color: var(--color-primary);
   transition:
