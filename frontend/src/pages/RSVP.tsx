@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from "./RSVP.module.css";
 
 const AttendingStatus = {
   HADIR: "hadir",
@@ -17,7 +16,6 @@ type RSVP = {
   created_at: string;
 };
 
-// Helper: stable avatar color per person (dynamic value — stays inline)
 function getAvatarColor(name: string): string {
   const colors = [
     "#E91E63",
@@ -31,12 +29,9 @@ function getAvatarColor(name: string): string {
   return colors[hash % colors.length];
 }
 
-// Helper: first letter(s) for the avatar circle
 function getInitials(name: string): string {
   const parts = name.trim().split(/\s+/);
-  const first = parts[0]?.[0] ?? "";
-  const second = parts[1]?.[0] ?? "";
-  return (first + second).toUpperCase();
+  return ((parts[0]?.[0] ?? "") + (parts[1]?.[0] ?? "")).toUpperCase();
 }
 
 function getAttendingLabel(status: AttendingStatus): string {
@@ -50,15 +45,14 @@ function getAttendingLabel(status: AttendingStatus): string {
   }
 }
 
-// Returns the right CSS Module class name for each status
 function getBadgeClass(status: AttendingStatus): string {
   switch (status) {
     case AttendingStatus.HADIR:
-      return styles.badgeHadir;
+      return "badge-hadir";
     case AttendingStatus.TIDAK_HADIR:
-      return styles.badgeTidakHadir;
+      return "badge-tidak-hadir";
     case AttendingStatus.MUNGKIN:
-      return styles.badgeMungkin;
+      return "badge-mungkin";
   }
 }
 
@@ -118,29 +112,31 @@ export default function RSVP() {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>RSVP</h2>
-      <p className={styles.subtitle}>Konfirmasi Kehadiran & Ucapan</p>
+    <div className="section-form">
+      <h2 className="section-title text-center">RSVP</h2>
+      <p className="section-subtitle text-center">
+        Konfirmasi Kehadiran & Ucapan
+      </p>
 
-      <div className={styles.form}>
-        <label className={styles.field}>
+      <div className="form-stack">
+        <label className="field">
           Nama
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nama"
-            className={styles.input}
+            className="input"
           />
         </label>
 
-        <label className={styles.field}>
+        <label className="field">
           Kehadiran
           <select
             value={attending ?? ""}
             onChange={(e) =>
               setAttending((e.target.value || null) as AttendingStatus | null)
             }
-            className={styles.select}
+            className="select"
           >
             <option value="">Kehadiran</option>
             <option value={AttendingStatus.HADIR}>Hadir</option>
@@ -149,51 +145,45 @@ export default function RSVP() {
           </select>
         </label>
 
-        <label className={styles.field}>
+        <label className="field">
           Komentar atau Ucapan
           <textarea
             value={message ?? ""}
             onChange={(e) => setMessage(e.target.value || null)}
             placeholder="Komentar atau Ucapan"
             rows={4}
-            className={styles.textarea}
+            className="textarea"
           />
         </label>
 
-        <button
-          onClick={handleSubmit}
-          disabled={submitting}
-          className={styles.submit}
-        >
+        <button onClick={handleSubmit} disabled={submitting} className="button">
           {submitting ? "Mengirim..." : "Kirim"}
         </button>
 
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className="form-error">{error}</p>}
       </div>
 
-      <div className={styles.divider}>
+      <div className="rsvp-feed">
         {rsvps.map((rsvp) => (
-          <div key={rsvp.id} className={styles.item}>
+          <div key={rsvp.id} className="rsvp-item">
             <div
-              className={styles.avatar}
+              className="avatar"
               style={{ background: getAvatarColor(rsvp.name) }}
             >
               {getInitials(rsvp.name)}
             </div>
 
-            <div className={styles.content}>
-              <div className={styles.itemHeader}>
+            <div className="rsvp-item-content">
+              <div className="rsvp-item-header">
                 <strong>{rsvp.name}</strong>
                 {rsvp.attending && (
-                  <span
-                    className={`${styles.badge} ${getBadgeClass(rsvp.attending)}`}
-                  >
+                  <span className={`badge ${getBadgeClass(rsvp.attending)}`}>
                     {getAttendingLabel(rsvp.attending)}
                   </span>
                 )}
               </div>
-              {rsvp.message && <p className={styles.message}>{rsvp.message}</p>}
-              <p className={styles.date}>
+              {rsvp.message && <p className="rsvp-message">{rsvp.message}</p>}
+              <p className="rsvp-date">
                 {new Date(rsvp.created_at).toLocaleString("id-ID", {
                   day: "numeric",
                   month: "long",

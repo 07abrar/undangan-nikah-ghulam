@@ -1,17 +1,15 @@
-import styles from "./Greetings.module.css";
-
 export default function Greetings() {
   return (
-    <div className={styles.container}>
-      <p className={styles.greeting}>Assalamualaikum Wr. Wb.</p>
+    <div className="section-body flow-xl">
+      <p className="lead">Assalamualaikum Wr. Wb.</p>
 
-      <hr className={styles.divider} />
+      <hr className="divider" />
 
-      <p className={styles.praise}>
+      <p className="body-prose body-italic">
         Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.
       </p>
 
-      <p className={styles.invitation}>
+      <p className="body-prose text-muted">
         Kami mengundang Bapak/Ibu/Saudara(i) pada acara pernikahan kami.
       </p>
     </div>

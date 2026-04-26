@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from "./Cover.module.css";
 
 const FALLBACK_NAME = "Tamu Undangan";
 
@@ -9,11 +8,9 @@ export default function Cover() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const token = params.get("to");
-
     if (!token) return;
 
     const controller = new AbortController();
-
     fetch(`/api/guests/${encodeURIComponent(token)}`, {
       signal: controller.signal,
     })
@@ -23,32 +20,30 @@ export default function Cover() {
       })
       .then((data) => setGuestName(data.name))
       .catch((err) => {
-        // Aborted on unmount — not a real error
         if (err.name === "AbortError") return;
-        // invalid token → keep fallback
       });
 
     return () => controller.abort();
   }, []);
 
   return (
-    <div className={styles.container}>
-      <p className={styles.eyebrow}>Pernikahan</p>
+    <div className="section-hero">
+      <p className="eyebrow">Pernikahan</p>
 
-      <h1 className={styles.names}>
-        <span className={styles.name}>Yasmin</span>
-        <span className={styles.ampersand}>&amp;</span>
-        <span className={styles.name}>Ghulam Abrar</span>
+      <h1 className="hero-names">
+        <span className="hero-name">Yasmin</span>
+        <span className="hero-ampersand">&amp;</span>
+        <span className="hero-name">Ghulam Abrar</span>
       </h1>
 
-      <p className={styles.date}>4 Juli 2026</p>
+      <p className="hero-date">4 Juli 2026</p>
 
-      <div className={styles.guest}>
-        <p className={styles.guestLabel}>Kepada Yth.</p>
-        <p className={styles.guestName}>{guestName}</p>
+      <div className="hero-guest">
+        <p className="eyebrow">Kepada Yth.</p>
+        <p className="hero-guest-name">{guestName}</p>
       </div>
 
-      <button type="button" className={styles.button}>
+      <button type="button" className="button">
         Buka Undangan
       </button>
     </div>
