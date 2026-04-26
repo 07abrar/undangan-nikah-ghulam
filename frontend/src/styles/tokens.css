@@ -1,0 +1,69 @@
+/* ============================================================
+   Design tokens — single source of truth for colors,
+   typography, spacing, radii, and layout widths.
+   Every other stylesheet should reference these via var().
+   ============================================================ */
+:root {
+  /* ---- Colors -------------------------------------------- */
+  /* Brand */
+  --color-primary: #6b4e3d;
+  --color-primary-dark: #523c2d;
+  --color-accent: #c9a57b;
+
+  /* Neutrals */
+  --color-bg: #faf7f2;
+  --color-card: #ffffff;
+  --color-text: #2c2520;
+  --color-text-muted: #8a7f75;
+  --color-border: #ece5db;
+  --color-border-soft: #f4efe7;
+
+  /* Status (RSVP attendance) */
+  --color-hadir-bg: #e8f5e9;
+  --color-hadir-text: #2e7d32;
+  --color-tidak-hadir-bg: #e1f5fe;
+  --color-tidak-hadir-text: #0277bd;
+  --color-mungkin-bg: #fff3e0;
+  --color-mungkin-text: #e65100;
+  --color-error: #c62828;
+
+  /* ---- Typography ---------------------------------------- */
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+
+  /* Font-size scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3.5rem;
+
+  /* Letter-spacing scale */
+  --tracking-tight: 0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.15em;
+  --tracking-widest: 0.25em;
+
+  /* ---- Spacing ------------------------------------------- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 20px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* ---- Radii --------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
+
+  /* ---- Layout widths ------------------------------------- */
+  --shell-max: 600px;
+  --content-max: 460px;
+  --form-max: 500px;
+}

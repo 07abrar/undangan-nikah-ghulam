@@ -1,0 +1,615 @@
+/* ============================================================
+   Components — class-based, reusable UI patterns.
+   Naming: kebab-case; semantic prefix for grouped families
+   (e.g. hero-, timeline-, couple-, rsvp-).
+   Order matters: variants are defined AFTER the base class
+   so their property overrides win the cascade.
+   ============================================================ */
+
+/* ---- App shell & navigation -------------------------------- */
+.app-shell {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.app-header {
+  text-align: center;
+  padding: var(--space-2xl) 0 var(--space-lg);
+}
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-2xl);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--color-primary-dark);
+}
+
+/* ---- Sections ---------------------------------------------- */
+/* `.section` is the spacing wrapper around each page block.
+   Its variants control the inner layout. */
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+/* Standard centered page block (Greetings, Story, EventDetails, CoupleProfile) */
+.section-body {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Form-centric block: narrow column, no forced centering (RSVP) */
+.section-form {
+  max-width: var(--form-max);
+  margin: 0 auto;
+}
+
+/* Full-height hero (Cover) */
+.section-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+/* ---- Headings & decorative typography ---------------------- */
+.section-title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-xs);
+}
+
+.section-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+/* Small uppercase letterspaced label — used for Cover eyebrow,
+   guest label, Quote bismillah, countdown unit labels. */
+.eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Decorative serif italic emphasis line (Greetings) */
+.lead {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  font-style: italic;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+}
+
+/* Body-width prose — centered max-width column.
+   Compose with .body-italic for italic serif,
+   or with .text-muted for plain muted prose. */
+.body-prose {
+  font-size: var(--text-md);
+  line-height: 1.7;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.body-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Decorative accent line. Horizontal centering is baked in;
+   surrounding spacing is the parent's responsibility (use .flow
+   or margin utilities). */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 0 auto;
+}
+
+/* ---- Cards -------------------------------------------------- */
+/* `.card` is decoration + a sensible default padding.
+   Variants override only the padding. Compose like:
+     <div class="card card-roomy">  (Quote)
+     <div class="card card-snug">   (schedule cards)
+     <div class="card card-tight">  (countdown boxes) */
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.card-roomy {
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.card-snug {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.card-tight {
+  padding: var(--space-md) var(--space-sm);
+}
+
+/* ---- Buttons ------------------------------------------------ */
+.button {
+  display: inline-block;
+  padding: 12px 36px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    opacity 0.2s,
+    color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-sm {
+  padding: 8px 24px;
+}
+
+.button-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.button-outline:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---- Forms -------------------------------------------------- */
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-family: inherit;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-card);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.form-error {
+  color: var(--color-error);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+/* ---- Status badges (RSVP attendance) ----------------------- */
+.badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.badge-hadir {
+  background: var(--color-hadir-bg);
+  color: var(--color-hadir-text);
+}
+
+.badge-tidak-hadir {
+  background: var(--color-tidak-hadir-bg);
+  color: var(--color-tidak-hadir-text);
+}
+
+.badge-mungkin {
+  background: var(--color-mungkin-bg);
+  color: var(--color-mungkin-text);
+}
+
+/* ---- Avatar (initials circle) ------------------------------ */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ---- Hero (Cover page) ------------------------------------- */
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.hero-ampersand {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.hero-date {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text);
+}
+
+.hero-guest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.hero-guest-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+}
+
+/* ---- Quote / Arabic verse ---------------------------------- */
+.arabic {
+  font-family: var(--font-arabic);
+  font-size: var(--text-2xl);
+  line-height: 2;
+  color: var(--color-primary);
+  direction: rtl;
+}
+
+.quote-source {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+}
+
+/* ---- Couple profile (image + paired cards w/ overlap) ------ */
+.couple-image {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  /* z-index 2 sits above the cards: the figures cover the card
+     tops while the transparent corners reveal the cards below. */
+  position: relative;
+  z-index: 2;
+}
+
+.couple-grid {
+  /* 1fr auto 1fr — ampersand sits in a self-sized middle column,
+     two cards split the rest. align-items: center keeps the
+     ampersand vertically centered regardless of card heights. */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+  /* Negative margin pulls the cards up under the image edge. */
+  margin-top: -28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Composes with .card. Override only padding (asymmetric for
+   the image overlap) and add the inner flex layout. */
+.couple-card {
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.couple-name {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-md);
+  overflow-wrap: break-word;
+}
+
+.couple-parents {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: var(--space-xs) 0;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.couple-ampersand {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-4xl);
+  line-height: 1;
+  color: var(--color-accent);
+  padding: 0 var(--space-xs);
+}
+
+.couple-social {
+  margin-top: auto;
+  align-self: center;
+}
+
+/* ---- Event details: countdown / venue / schedule ----------- */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  max-width: 360px;
+  margin: 0 auto var(--space-xl);
+}
+
+/* Composes with .card .card-tight; only adds inner layout. */
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.countdown-number {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-primary);
+  /* Tabular numbers stop digits from shifting width as the timer ticks. */
+  font-variant-numeric: tabular-nums;
+}
+
+.venue-card {
+  max-width: var(--content-max);
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+}
+
+.venue-name {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.venue-address {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.schedule-event {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-sm);
+}
+
+.schedule-time {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+/* ---- Story timeline ---------------------------------------- */
+.timeline {
+  position: relative;
+  text-align: left;
+  list-style: none;
+  padding: 0 0 0 48px;
+  margin: 0 auto;
+  max-width: var(--content-max);
+}
+
+.timeline-entry {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+
+.timeline-entry:last-child {
+  padding-bottom: 0;
+}
+
+/* Vertical accent line connecting markers (skipped on last entry). */
+.timeline-entry:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 26px;
+  bottom: -2px;
+  width: 1px;
+  background: var(--color-accent);
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -48px;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-marker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Wedding-day marker — filled, with a heart inside */
+.timeline-marker-final {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.timeline-date {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.timeline-description {
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Final entry (wedding day) gets emphasized typography. */
+.timeline-entry-final .timeline-date {
+  font-size: var(--text-lg);
+  color: var(--color-primary-dark);
+}
+
+.timeline-entry-final .timeline-description {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--color-primary);
+}
+
+/* ---- RSVP feed --------------------------------------------- */
+.rsvp-feed {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-soft);
+}
+.rsvp-item {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+.rsvp-item-content {
+  flex: 1;
+}
+.rsvp-item-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+.rsvp-message {
+  font-size: 14px;
+  margin: var(--space-xs) 0;
+}
+.rsvp-date {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+} /* ---- Spacing utilities ------------------------------------- /
+/ Vertical spacing between siblings — replaces ad hoc margins. */
+.flow > * + * {
+  margin-top: var(--space-md);
+}
+.flow-lg > * + * {
+  margin-top: var(--space-lg);
+}
+.flow-xl > * + * {
+  margin-top: var(--space-xl);
+}
+.flow-2xl > * + * {
+  margin-top: var(--space-2xl);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+.text-center {
+  text-align: center;
+}
