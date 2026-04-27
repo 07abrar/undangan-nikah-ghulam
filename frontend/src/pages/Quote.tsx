@@ -1,7 +1,7 @@
 export default function Quote() {
   return (
-    <div className="card card-roomy section-body flow-xl">
-      <p className="eyebrow">Bismillahirrahmanirrahim</p>
+    <div className="card card-roomy section-body">
+      <p className="plain-capital-text">Bismillahirrahmanirrahim</p>
 
       <p className="arabic" lang="ar">
         وَمِنْ ءَايَـٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًۭا
@@ -10,7 +10,7 @@ export default function Quote() {
 
       <hr className="divider" />
 
-      <p className="body-prose body-italic">
+      <p className="long-text body-italic">
         "Dan di antara tanda-tanda kekuasaan Allah ialah Dia menciptakan untukmu
         pasangan-pasangan dari jenismu sendiri, agar kamu cenderung dan merasa
         tenteram kepadanya"

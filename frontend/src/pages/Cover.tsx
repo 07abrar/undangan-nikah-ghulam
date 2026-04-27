@@ -27,20 +27,20 @@ export default function Cover() {
   }, []);
 
   return (
-    <div className="section-hero">
-      <p className="eyebrow">Pernikahan</p>
+    <div className="section-cover">
+      <p className="plain-capital-text">Pernikahan</p>
 
-      <h1 className="hero-names">
-        <span className="hero-name">Yasmin</span>
-        <span className="hero-ampersand">&amp;</span>
-        <span className="hero-name">Ghulam Abrar</span>
+      <h1 className="couple-names">
+        <span className="couple-name-cover">Yasmin</span>
+        <span className="couple-ampersand">&amp;</span>
+        <span className="couple-name-cover">Ghulam Abrar</span>
       </h1>
 
-      <p className="hero-date">4 Juli 2026</p>
+      <p className="event-date-cover">4 Juli 2026</p>
 
-      <div className="hero-guest">
-        <p className="eyebrow">Kepada Yth.</p>
-        <p className="hero-guest-name">{guestName}</p>
+      <div className="invited-guest">
+        <p className="plain-capital-text">Kepada Yth.</p>
+        <p className="invited-guest-name">{guestName}</p>
       </div>
 
       <button type="button" className="button">

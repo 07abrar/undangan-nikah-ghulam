@@ -48,7 +48,10 @@ export default function EventDetails() {
     <div className="section-body">
       <h2 className="section-title">Akad Nikah dan Resepsi</h2>
       <p className="section-subtitle">Sabtu, 4 Juli 2026</p>
-      <hr className="divider" style={{ marginBottom: "var(--space-2xl)" }} />
+      <hr
+        className="divider"
+        style={{ marginBottom: "var(--space-padding-height)" }}
+      />
 
       <div className="countdown-grid">
         <CountdownBox value={timeLeft.days} label="Hari" />
@@ -61,8 +64,8 @@ export default function EventDetails() {
         href={CALENDAR_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="button button-sm"
-        style={{ marginBottom: "var(--space-2xl)" }}
+        className="button"
+        style={{ marginBottom: "var(--space-padding-height)" }}
       >
         + Tambah ke Kalender
       </a>
@@ -74,7 +77,7 @@ export default function EventDetails() {
           href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="button button-sm button-outline"
+          className="button button-outline"
         >
           Buka Maps
         </a>
@@ -100,7 +103,7 @@ function CountdownBox({ value, label }: { value: number; label: string }) {
       <span className="countdown-number">
         {value.toString().padStart(2, "0")}
       </span>
-      <span className="eyebrow">{label}</span>
+      <span className="plain-capital-text">{label}</span>
     </div>
   );
 }

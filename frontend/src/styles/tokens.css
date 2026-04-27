@@ -1,8 +1,3 @@
-/* ============================================================
-   Design tokens — single source of truth for colors,
-   typography, spacing, radii, and layout widths.
-   Every other stylesheet should reference these via var().
-   ============================================================ */
 :root {
   /* ---- Colors -------------------------------------------- */
   /* Brand */
@@ -33,15 +28,14 @@
   --font-arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
 
   /* Font-size scale */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
+  --text-plain-capital-text: 0.75rem;
+  --text-form-button: 0.8rem;
   --text-base: 1rem;
-  --text-md: 1.1rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.4rem;
-  --text-2xl: 1.75rem;
-  --text-3xl: 2.25rem;
-  --text-4xl: 3.5rem;
+  --text-base-2: 1.2rem;
+  --text-base-3: 1.4rem;
+  --text-section-title: 1.75rem;
+  --text-countdown: 2.25rem;
+  --text-couple-name-cover: 3.5rem;
 
   /* Letter-spacing scale */
   --tracking-tight: 0.02em;
@@ -50,20 +44,18 @@
   --tracking-widest: 0.25em;
 
   /* ---- Spacing ------------------------------------------- */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 12px;
-  --space-lg: 20px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
+  --space-margin-width: 4px;
+  --space-margin-height: 8px;
+  --space-margin-event-date-cover: 288px;
+  --space-padding-width: 24px;
+  --space-padding-height: 32px;
 
   /* ---- Radii --------------------------------------------- */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-pill: 9999px;
+  --radius-rsvp-form: 6px;
+  --radius-card: 12px;
+  --radius-button: 9999px;
 
   /* ---- Layout widths ------------------------------------- */
-  --shell-max: 600px;
+  --shell-max-width: 700px;
   --content-max: 460px;
-  --form-max: 500px;
 }
