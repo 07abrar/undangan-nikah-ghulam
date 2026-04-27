@@ -10,26 +10,11 @@ export default function CoupleProfile() {
       />
 
       <div className="couple-grid">
-        {/* Bride — left */}
-        <div id="bride_profile" className="card couple-card">
-          <h3 className="couple-name">Yasmin Farhana, S.Si.</h3>
-          <p className="couple-parents">Putri kedua dari</p>
-          <p className="couple-parents">
-            Bapak Prof. Dr. Ir. Husni, M.Agric.Sc. (alm)
-          </p>
-          <p className="couple-parents">&amp; Ibu Rida Defriana, S.P.</p>
-          <p className="couple-parents">Ibunda Almarhumah Ir. Dewi Afriani</p>
-        </div>
-
-        <span className="couple-ampersand" aria-hidden="true">
-          &amp;
-        </span>
-
-        {/* Groom — right */}
+        {/* Groom — left */}
         <div id="groom_profile" className="card couple-card">
           <h3 className="couple-name">Ghulam Abrar, S.T., M.Sc., M.Si.</h3>
           <p className="couple-parents">Putra pertama dari</p>
-          <p className="couple-parents">Bapak Chairul, S.E.</p>
+          <p className="couple-parents">Bapak Chairul, S.E., M.E.</p>
           <p className="couple-parents">&amp; Ibu Tihajidah, S.Ag.</p>
           <a
             href="https://www.linkedin.com/in/07abrar/"
@@ -43,6 +28,21 @@ export default function CoupleProfile() {
             </svg>
             LinkedIn
           </a>
+        </div>
+
+        <span className="couple-ampersand" aria-hidden="true">
+          &amp;
+        </span>
+
+        {/* Bride — right */}
+        <div id="bride_profile" className="card couple-card">
+          <h3 className="couple-name">Yasmin Farhana, S.Pd.</h3>
+          <p className="couple-parents">Putri kedua dari</p>
+          <p className="couple-parents">
+            Bapak (alm) Prof. Dr. Ir. Husni, M.Agric.Sc.
+          </p>
+          <p className="couple-parents">&amp; Ibu (almh) Ir. Dewi Afriani</p>
+          <p className="couple-parents">&amp; Ibu Rida Defriana, S.P.</p>
         </div>
       </div>
     </div>
