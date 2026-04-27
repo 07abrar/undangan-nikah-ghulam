@@ -2,28 +2,28 @@
 .app-shell {
   max-width: var(--shell-max-width);
   margin: 0 auto;
-  padding: var(--space-padding-width);
+  padding: var(--space-lg);
 }
 
 .app-header {
   text-align: center;
-  padding: 0 var(--space-padding-width);
+  padding: 0 var(--space-lg);
 }
 
 .app-nav {
   display: flex;
   justify-content: center;
-  gap: var(--space-padding-width);
-  padding: var(--space-padding-height) var(--space-padding-width);
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-margin-height);
+  margin-bottom: var(--space-sm);
 }
 
 .nav-link {
   text-decoration: none;
   color: var(--color-primary);
-  font-size: var(--text-plain-capital-text);
+  font-size: var(--text-xs);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   transition: color 0.2s;
@@ -36,16 +36,16 @@
 
 /* ---- Sections ---------------------------------------------- */
 .section {
-  margin-bottom: var(--space-margin-height);
+  margin-bottom: var(--space-sm);
 }
 
-/* Standard centered page block (Greetings, Story, EventDetails, CoupleProfile) */
+/* Standard centered page block */
 .section-body {
   text-align: center;
-  padding: var(--space-padding-height) var(--space-padding-width);
+  padding: var(--space-xl) var(--space-lg);
 }
 
-/* Form-centric block: narrow column, no forced centering (RSVP) */
+/* Form-centric block: narrow column, left-aligned (RSVP) */
 .section-form {
   max-width: var(--content-max);
   margin: 0 auto;
@@ -58,38 +58,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-margin-height);
+  gap: var(--space-sm);
   text-align: center;
-  padding: var(--space-padding-height) var(--space-padding-width);
+  padding: var(--space-xl) var(--space-lg);
 }
 
 /* ---- Headings & decorative typography ---------------------- */
 .section-title {
-  font-size: var(--text-section-title);
-  margin-bottom: var(--space-margin-height);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-sm);
 }
 
 .section-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
   color: var(--color-text-muted);
-  margin-bottom: var(--space-margin-height);
+  margin-bottom: var(--space-sm);
 }
 
-/* Small uppercase letterspaced label — used for Cover plain-capital-text,
-   guest label, Quote bismillah, countdown unit labels. */
+/* Small uppercase letterspaced label */
 .plain-capital-text {
-  font-size: var(--text-plain-capital-text);
+  font-size: var(--text-xs);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   color: var(--color-text-muted);
   margin: 0;
 }
 
-/* Decorative serif italic emphasis line (Greetings) */
+/* Decorative serif italic emphasis line */
 .salam {
   font-family: var(--font-serif);
-  font-size: var(--text-base-2);
+  font-size: var(--text-lg);
   font-style: italic;
   color: var(--color-primary);
   letter-spacing: 0.05em;
@@ -97,8 +96,8 @@
 
 /* Body-width prose */
 .long-text {
-  font-size: var(--text-base-2);
-  line-height: 1.7;
+  font-size: var(--text-lg);
+  line-height: var(--leading-loose);
   max-width: var(--content-max);
   margin-left: auto;
   margin-right: auto;
@@ -109,7 +108,14 @@
   font-style: italic;
 }
 
-/* Decorative accent line. */
+.invitation-text {
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+}
+
+/* Decorative accent line */
 .divider {
   width: 40px;
   height: 1px;
@@ -117,24 +123,26 @@
   margin: 0 auto;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* ---- Cards -------------------------------------------------- */
 .card {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  padding: var(--space-padding-height) var(--space-padding-width);
+  padding: var(--space-xl) var(--space-lg);
 }
 
-.card-roomy {
-  padding: var(--space-padding-height) var(--space-padding-width);
-}
-
+/* Compact variant — schedule event cards */
 .card-snug {
-  padding: var(--space-padding-height) var(--space-padding-width);
+  padding: var(--space-md) var(--space-lg);
 }
 
+/* Tightest variant — countdown boxes */
 .card-tight {
-  padding: var(--space-padding-height) var(--space-padding-width);
+  padding: var(--space-sm) var(--space-lg);
 }
 
 /* ---- Buttons ------------------------------------------------ */
@@ -145,7 +153,7 @@
   color: #fff;
   border: none;
   border-radius: var(--radius-button);
-  font-size: var(--text-form-button);
+  font-size: var(--text-sm);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   text-decoration: none;
@@ -181,14 +189,14 @@
 .form-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-padding-width);
+  gap: var(--space-lg);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-margin-width);
-  font-size: var(--text-form-button);
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
   color: var(--color-text-muted);
 }
 
@@ -197,7 +205,7 @@
 .textarea {
   width: 100%;
   padding: 10px 12px;
-  border-radius: var(--radius-rsvp-form);
+  border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   font-family: inherit;
   font-size: var(--text-base);
@@ -218,14 +226,14 @@
 
 .form-error {
   color: var(--color-error);
-  font-size: var(--text-form-button);
+  font-size: var(--text-sm);
   margin: 0;
 }
 
 /* ---- Status badges (RSVP attendance) ----------------------- */
 .badge {
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 12px;
 }
 
@@ -263,12 +271,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-margin-height);
+  gap: var(--space-sm);
 }
 
 .couple-name-cover {
   font-family: var(--font-serif);
-  font-size: var(--text-couple-name-cover);
+  font-size: var(--text-4xl);
   font-style: italic;
   font-weight: 500;
   line-height: 1;
@@ -277,38 +285,40 @@
 
 .couple-ampersand {
   font-family: var(--font-serif);
-  font-size: var(--text-couple-name-cover);
+  font-size: var(--text-4xl);
   font-style: italic;
   font-weight: 400;
   line-height: 1;
   color: var(--color-accent);
+  padding: 0 var(--space-xs);
 }
 
 .event-date-cover {
   font-family: var(--font-serif);
-  font-size: var(--text-base-2);
+  font-size: var(--text-lg);
   letter-spacing: var(--tracking-wide);
   color: var(--color-text);
-  margin-bottom: var(--space-margin-event-date-cover);
+  /* Extra gap separates the event date from the guest block in the hero layout. */
+  margin-bottom: 288px;
 }
 
 .invited-guest {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-margin-width);
+  gap: var(--space-xs);
 }
 
 .invited-guest-name {
   font-family: var(--font-serif);
-  font-size: var(--text-base-3);
+  font-size: var(--text-xl);
   color: var(--color-text);
 }
 
 /* ---- Quote / Arabic verse ---------------------------------- */
 .arabic {
   font-family: var(--font-arabic);
-  font-size: var(--text-section-title);
+  font-size: var(--text-2xl);
   line-height: 2;
   color: var(--color-primary);
   direction: rtl;
@@ -339,7 +349,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: var(--space-margin-width);
+  gap: var(--space-xs);
   /* Negative margin pulls the cards up under the image edge. */
   margin-top: -28px;
   position: relative;
@@ -349,16 +359,16 @@
 /* Composes with .card. Override only padding (asymmetric for
    the image overlap) and add the inner flex layout. */
 .couple-card {
-  padding: var(--space-padding-height) var(--space-padding-width);
+  padding: var(--space-xl) var(--space-lg);
   display: flex;
   flex-direction: column;
 }
 
 .couple-name {
   font-family: var(--font-serif);
-  font-size: var(--text-base-2);
-  margin-bottom: var(--space-margin-height);
-  line-height: 1.25;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-snug);
   overflow-wrap: break-word;
 }
 
@@ -366,28 +376,18 @@
   font-size: var(--text-base);
   color: var(--color-text);
   margin: 2px 0;
-  line-height: 1.25;
+  line-height: var(--leading-snug);
   overflow-wrap: break-word;
-}
-
-.couple-ampersand {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: var(--text-couple-name-cover);
-  line-height: 1;
-  color: var(--color-accent);
-  padding: 0 var(--space-margin-width);
 }
 
 .linkedin {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
   padding: 10px 20px;
-  background: #0a66c2;
+  background: var(--color-linkedin);
   color: #fff;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -395,16 +395,16 @@
 }
 
 .linkedin:hover {
-  background: #004182;
+  background: var(--color-linkedin-hover);
 }
 
 /* ---- Event details: countdown / venue / schedule ----------- */
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-margin-height);
+  gap: var(--space-sm);
   max-width: 360px;
-  margin: 0 auto var(--space-padding-height);
+  margin: 0 auto var(--space-xl);
 }
 
 /* Composes with .card .card-tight; only adds inner layout. */
@@ -412,12 +412,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-margin-width);
+  gap: var(--space-xs);
 }
 
 .countdown-number {
   font-family: var(--font-serif);
-  font-size: var(--text-countdown);
+  font-size: var(--text-3xl);
   font-weight: 500;
   line-height: 1;
   color: var(--color-primary);
@@ -427,34 +427,34 @@
 
 .venue-card {
   max-width: var(--content-max);
-  margin: 0 auto var(--space-margin-height);
+  margin: 0 auto var(--space-sm);
   text-align: center;
 }
 
 .venue-name {
-  font-size: var(--text-base-3);
-  margin-bottom: var(--space-margin-height);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-sm);
 }
 
 .venue-address {
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
   color: var(--color-text-muted);
-  margin-bottom: var(--space-margin-height);
+  margin-bottom: var(--space-sm);
 }
 
 .schedule-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-padding-width);
+  gap: var(--space-lg);
   max-width: var(--content-max);
   margin: 0 auto;
   text-align: center;
 }
 
 .schedule-event {
-  font-size: var(--text-base-2);
-  margin-bottom: var(--space-margin-height);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-sm);
 }
 
 .schedule-time {
@@ -476,7 +476,7 @@
 
 .timeline-entry {
   position: relative;
-  padding-bottom: var(--space-padding-height);
+  padding-bottom: var(--space-xl);
 }
 
 .timeline-entry:last-child {
@@ -527,68 +527,64 @@
 .timeline-date {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: var(--text-base-2);
+  font-size: var(--text-lg);
   color: var(--color-primary);
-  margin: 0 0 var(--space-margin-width);
+  margin: 0 0 var(--space-xs);
 }
 
 .timeline-description {
   font-size: var(--text-base);
-  line-height: 1.65;
+  line-height: var(--leading-relaxed);
   color: var(--color-text);
   margin: 0;
 }
 
 /* Final entry (wedding day) gets emphasized typography. */
 .timeline-entry-final .timeline-date {
-  font-size: var(--text-base-2);
+  font-size: var(--text-lg);
   color: var(--color-primary-dark);
 }
 
 .timeline-entry-final .timeline-description {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: var(--text-base-2);
+  font-size: var(--text-lg);
   color: var(--color-primary);
 }
 
 /* ---- RSVP feed --------------------------------------------- */
 .rsvp-feed {
-  margin-top: var(--space-margin-height);
-  padding-top: var(--space-padding-height);
+  margin-top: var(--space-sm);
+  padding-top: var(--space-xl);
   border-top: 1px solid var(--color-border-soft);
 }
+
 .rsvp-item {
   display: flex;
-  gap: var(--space-padding-width);
-  margin-bottom: var(--space-margin-height);
-  padding-bottom: var(--space-padding-height);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--color-border-soft);
 }
+
 .rsvp-item-content {
   flex: 1;
 }
+
 .rsvp-item-header {
   display: flex;
   align-items: center;
-  gap: var(--space-margin-height);
-  margin-bottom: var(--space-margin-height);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
+
 .rsvp-message {
   font-size: 14px;
-  margin: var(--space-margin-height) 0;
+  margin: var(--space-sm) 0;
 }
+
 .rsvp-date {
   font-size: 12px;
   color: var(--color-text-muted);
   margin: 0;
-}
-.invitation-text {
-  color: var(--color-text);
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  line-height: 1.25;
-}
-.text-center {
-  text-align: center;
 }

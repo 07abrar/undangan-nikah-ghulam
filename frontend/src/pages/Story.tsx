@@ -38,7 +38,7 @@ export default function Story() {
       <h2 className="section-title">Sebuah Kisah Singkat</h2>
       <hr
         className="divider"
-        style={{ marginBottom: "var(--space-padding-height)" }}
+        style={{ marginBottom: "var(--space-xl)" }}
       />
 
       <ol className="timeline">

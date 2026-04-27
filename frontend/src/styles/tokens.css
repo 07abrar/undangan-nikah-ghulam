@@ -1,11 +1,9 @@
 :root {
   /* ---- Colors -------------------------------------------- */
-  /* Brand */
   --color-primary: #6b4e3d;
   --color-primary-dark: #523c2d;
   --color-accent: #c9a57b;
 
-  /* Neutrals */
   --color-bg: #faf7f2;
   --color-card: #ffffff;
   --color-text: #2c2520;
@@ -22,20 +20,30 @@
   --color-mungkin-text: #e65100;
   --color-error: #c62828;
 
+  /* External brand */
+  --color-linkedin: #0a66c2;
+  --color-linkedin-hover: #004182;
+
   /* ---- Typography ---------------------------------------- */
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
 
   /* Font-size scale */
-  --text-plain-capital-text: 0.75rem;
-  --text-form-button: 0.8rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8rem;
   --text-base: 1rem;
-  --text-base-2: 1.2rem;
-  --text-base-3: 1.4rem;
-  --text-section-title: 1.75rem;
-  --text-countdown: 2.25rem;
-  --text-couple-name-cover: 3.5rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3.5rem;
+
+  /* Line-height scale */
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --leading-loose: 1.7;
 
   /* Letter-spacing scale */
   --tracking-tight: 0.02em;
@@ -44,14 +52,15 @@
   --tracking-widest: 0.25em;
 
   /* ---- Spacing ------------------------------------------- */
-  --space-margin-width: 4px;
-  --space-margin-height: 8px;
-  --space-margin-event-date-cover: 288px;
-  --space-padding-width: 24px;
-  --space-padding-height: 32px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
 
   /* ---- Radii --------------------------------------------- */
-  --radius-rsvp-form: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
   --radius-card: 12px;
   --radius-button: 9999px;
 

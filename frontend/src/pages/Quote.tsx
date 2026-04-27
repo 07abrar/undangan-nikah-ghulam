@@ -1,6 +1,6 @@
 export default function Quote() {
   return (
-    <div className="card card-roomy section-body">
+    <div className="card section-body">
       <p className="plain-capital-text">Bismillahirrahmanirrahim</p>
 
       <p className="arabic" lang="ar">

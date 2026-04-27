@@ -50,7 +50,7 @@ export default function EventDetails() {
       <p className="section-subtitle">Sabtu, 4 Juli 2026</p>
       <hr
         className="divider"
-        style={{ marginBottom: "var(--space-padding-height)" }}
+        style={{ marginBottom: "var(--space-xl)" }}
       />
 
       <div className="countdown-grid">
@@ -65,7 +65,7 @@ export default function EventDetails() {
         target="_blank"
         rel="noopener noreferrer"
         className="button"
-        style={{ marginBottom: "var(--space-padding-height)" }}
+        style={{ marginBottom: "var(--space-xl)" }}
       >
         + Tambah ke Kalender
       </a>
