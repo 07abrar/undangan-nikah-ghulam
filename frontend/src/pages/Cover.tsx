@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from "./Cover.module.css";
 
 const FALLBACK_NAME = "Tamu Undangan";
 
@@ -9,11 +8,9 @@ export default function Cover() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const token = params.get("to");
-
     if (!token) return;
 
     const controller = new AbortController();
-
     fetch(`/api/guests/${encodeURIComponent(token)}`, {
       signal: controller.signal,
     })
@@ -23,32 +20,30 @@ export default function Cover() {
       })
       .then((data) => setGuestName(data.name))
       .catch((err) => {
-        // Aborted on unmount — not a real error
         if (err.name === "AbortError") return;
-        // invalid token → keep fallback
       });
 
     return () => controller.abort();
   }, []);
 
   return (
-    <div className={styles.container}>
-      <p className={styles.eyebrow}>Pernikahan</p>
+    <div className="section-cover">
+      <p className="plain-capital-text">Pernikahan</p>
 
-      <h1 className={styles.names}>
-        <span className={styles.name}>Yasmin</span>
-        <span className={styles.ampersand}>&amp;</span>
-        <span className={styles.name}>Ghulam Abrar</span>
+      <h1 className="couple-names">
+        <span className="couple-name-cover">Yasmin</span>
+        <span className="couple-ampersand">&amp;</span>
+        <span className="couple-name-cover">Ghulam Abrar</span>
       </h1>
 
-      <p className={styles.date}>4 Juli 2026</p>
+      <p className="event-date-cover">4 Juli 2026</p>
 
-      <div className={styles.guest}>
-        <p className={styles.guestLabel}>Kepada Yth.</p>
-        <p className={styles.guestName}>{guestName}</p>
+      <div className="invited-guest">
+        <p className="plain-capital-text">Kepada Yth.</p>
+        <p className="invited-guest-name">{guestName}</p>
       </div>
 
-      <button type="button" className={styles.button}>
+      <button type="button" className="button">
         Buka Undangan
       </button>
     </div>

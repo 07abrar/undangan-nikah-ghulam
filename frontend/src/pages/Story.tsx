@@ -1,5 +1,3 @@
-import styles from "./Story.module.css";
-
 type StoryEvent = {
   date: string;
   description: string;
@@ -31,36 +29,31 @@ const TIMELINE: StoryEvent[] = [
     date: "18 Oktober 2025",
     description: "Taaruf terakhir kami di rumah Yasmin.",
   },
-  {
-    date: "4 Juli 2026",
-    description: "Kami akan menikah, insyaallah.",
-  },
+  { date: "4 Juli 2026", description: "Kami akan menikah, insyaallah." },
 ];
 
 export default function Story() {
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Sebuah Kisah Singkat</h2>
-      <hr className={styles.divider} />
+    <div className="section-body">
+      <h2 className="section-title">Sebuah Kisah Singkat</h2>
+      <hr
+        className="divider"
+        style={{ marginBottom: "var(--space-xl)" }}
+      />
 
-      <ol className={styles.timeline}>
+      <ol className="timeline">
         {TIMELINE.map((event, index) => {
           const isFinal = index === TIMELINE.length - 1;
-
-          const entryClass = [styles.entry, isFinal && styles.entryFinal]
-            .filter(Boolean)
-            .join(" ");
-          const markerClass = [styles.marker, isFinal && styles.markerFinal]
-            .filter(Boolean)
-            .join(" ");
+          const entryClass = `timeline-entry${isFinal ? " timeline-entry-final" : ""}`;
+          const markerClass = `timeline-marker${isFinal ? " timeline-marker-final" : ""}`;
 
           return (
             <li key={event.date} className={entryClass}>
               <span className={markerClass} aria-hidden="true">
-                {isFinal ? "♥" : <span className={styles.markerDot} />}
+                {isFinal ? "♥" : <span className="timeline-marker-dot" />}
               </span>
-              <p className={styles.date}>{event.date}</p>
-              <p className={styles.description}>{event.description}</p>
+              <p className="timeline-date">{event.date}</p>
+              <p className="timeline-description">{event.description}</p>
             </li>
           );
         })}

@@ -1,24 +1,22 @@
-import styles from "./Quote.module.css";
-
 export default function Quote() {
   return (
-    <div className={styles.container}>
-      <p className={styles.eyebrow}>Bismillahirrahmanirrahim</p>
+    <div className="card section-body">
+      <p className="plain-capital-text">Bismillahirrahmanirrahim</p>
 
-      <p className={styles.arabic} lang="ar">
+      <p className="arabic" lang="ar">
         وَمِنْ ءَايَـٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًۭا
         لِّتَسْكُنُوٓا۟ إِلَيْهَا (٢١)
       </p>
 
-      <hr className={styles.divider} />
+      <hr className="divider" />
 
-      <p className={styles.translation}>
+      <p className="long-text body-italic">
         "Dan di antara tanda-tanda kekuasaan Allah ialah Dia menciptakan untukmu
         pasangan-pasangan dari jenismu sendiri, agar kamu cenderung dan merasa
         tenteram kepadanya"
       </p>
 
-      <p className={styles.source}>(QS. Ar-Ruum: 21)</p>
+      <p className="quote-source">(QS. Ar-Ruum: 21)</p>
     </div>
   );
 }

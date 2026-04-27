@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import styles from "./App.module.css";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
 import EventDetails from "./pages/EventDetails";
@@ -20,13 +19,20 @@ const SECTION_IDS = [
 ] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
+const NAV_ITEMS: { id: SectionId; label: string }[] = [
+  { id: "cover", label: "Cover" },
+  { id: "quote", label: "Quote" },
+  { id: "greetings", label: "Salam" },
+  { id: "couple_profile", label: "Calon Mempelai" },
+  { id: "event_details", label: "Detail Acara" },
+  { id: "story", label: "Kisah" },
+  { id: "rsvp", label: "RSVP" },
+];
+
 function App() {
   const [activeSection, setActiveSection] = useState<SectionId>("cover");
 
   useEffect(() => {
-    // rootMargin shrinks the observed viewport to a 0px-tall band at the
-    // vertical center, so only the section crossing the middle of the screen
-    // is "intersecting"
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -46,60 +52,42 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  function navLinkClass(id: SectionId): string {
-    return [styles.navLink, activeSection === id ? styles.navLinkActive : ""]
-      .filter(Boolean)
-      .join(" ");
-  }
-
   return (
-    <div className={styles.shell}>
-      <header className={styles.header}>
-        <nav className={styles.nav}>
-          <a href="#cover" className={styles.navLink}>
-            Cover
-          </a>
-          <a href="#quote" className={styles.navLink}>
-            Quote
-          </a>
-          <a href="#greetings" className={styles.navLink}>
-            Salam
-          </a>
-          <a href="#couple_profile" className={styles.navLink}>
-            Calon Mempelai
-          </a>
-          <a href="#event_details" className={styles.navLink}>
-            Detail Acara
-          </a>
-          <a href="#story" className={styles.navLink}>
-            Kisah
-          </a>
-          <a href="#rsvp" className={styles.navLink}>
-            RSVP
-          </a>
+    <div className="app-shell">
+      <header className="app-header">
+        <nav className="app-nav">
+          {NAV_ITEMS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`nav-link${activeSection === id ? " is-active" : ""}`}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </header>
 
       <main>
-        <section id="cover" className={styles.section}>
+        <section id="cover" className="section">
           <Cover />
         </section>
-        <section id="quote" className={styles.section}>
+        <section id="quote" className="section">
           <Quote />
         </section>
-        <section id="greetings" className={styles.section}>
+        <section id="greetings" className="section">
           <Greetings />
         </section>
-        <section id="couple_profile" className={styles.section}>
+        <section id="couple_profile" className="section">
           <CoupleProfile />
         </section>
-        <section id="event_details" className={styles.section}>
+        <section id="event_details" className="section">
           <EventDetails />
         </section>
-        <section id="story" className={styles.section}>
+        <section id="story" className="section">
           <Story />
         </section>
-        <section id="rsvp" className={styles.section}>
+        <section id="rsvp" className="section">
           <RSVP />
         </section>
       </main>
