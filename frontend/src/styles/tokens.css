@@ -1,15 +1,21 @@
 :root {
   /* ---- Colors -------------------------------------------- */
-  --color-primary: #6b4e3d;
-  --color-primary-dark: #523c2d;
-  --color-accent: #c9a57b;
+  /* Brand — warm gold for buttons, links, decorative accents */
+  --color-primary: #c9a96b;
+  --color-primary-dark: #a88a4f;
+  --color-accent: #d4a574;
 
-  --color-bg: #faf7f2;
+  /* Surfaces */
+  --color-bg: #ebe9e4;
   --color-card: #ffffff;
-  --color-text: #2c2520;
-  --color-text-muted: #8a7f75;
-  --color-border: #ece5db;
-  --color-border-soft: #f4efe7;
+
+  /* Text */
+  --color-text: #1f2235;
+  --color-text-muted: #7a7d88;
+
+  /* Borders */
+  --color-border: #d4d2cd;
+  --color-border-soft: #e2e0db;
 
   /* Status (RSVP attendance) */
   --color-hadir-bg: #e8f5e9;

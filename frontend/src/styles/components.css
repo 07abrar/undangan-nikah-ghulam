@@ -85,17 +85,19 @@
   margin: 0;
 }
 
-/* Decorative serif italic emphasis line */
+/* Decorative serif italic emphasis line (Greetings salam) */
 .salam {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-style: italic;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   letter-spacing: 0.05em;
+  margin-bottom: var(--space-lg);
 }
 
 /* Body-width prose */
 .long-text {
+  font-family: var(--font-serif);
   font-size: var(--text-lg);
   line-height: var(--leading-loose);
   max-width: var(--content-max);
@@ -103,16 +105,13 @@
   margin-right: auto;
 }
 
+.long-text + .long-text {
+  margin-top: var(--space-md);
+}
+
 .body-italic {
   font-family: var(--font-serif);
   font-style: italic;
-}
-
-.invitation-text {
-  color: var(--color-text);
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  line-height: var(--leading-snug);
 }
 
 /* Decorative accent line */
@@ -120,11 +119,15 @@
   width: 40px;
   height: 1px;
   background: var(--color-accent);
-  margin: 0 auto;
+  margin: var(--space-md) auto;
 }
 
 .text-center {
   text-align: center;
+}
+
+.mb-xl {
+  margin-bottom: var(--space-xl);
 }
 
 /* ---- Cards -------------------------------------------------- */
@@ -280,7 +283,7 @@
   font-style: italic;
   font-weight: 500;
   line-height: 1;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .couple-ampersand {
@@ -381,15 +384,18 @@
 }
 
 .linkedin {
+  align-self: center;
+  margin-top: var(--space-sm);
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: 10px 20px;
+  gap: var(--space-xs);
+  padding: 4px 10px;
   background: var(--color-linkedin);
   color: #fff;
-  border-radius: var(--radius-md);
-  font-size: 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
   font-weight: 500;
+  line-height: 1.4;
   text-decoration: none;
   transition: background 0.15s;
 }
@@ -420,9 +426,14 @@
   font-size: var(--text-3xl);
   font-weight: 500;
   line-height: 1;
-  color: var(--color-primary);
+  color: var(--color-text);
   /* Tabular numbers stop digits from shifting width as the timer ticks. */
   font-variant-numeric: tabular-nums;
+}
+
+/* Gold accent on countdown labels (Hari/Jam/Menit/Detik). */
+.countdown-box .plain-capital-text {
+  color: var(--color-primary);
 }
 
 .venue-card {
@@ -441,6 +452,15 @@
   line-height: var(--leading-relaxed);
   color: var(--color-text-muted);
   margin-bottom: var(--space-sm);
+}
+
+.venue-map {
+  display: block;
+  width: 100%;
+  height: 280px;
+  margin-top: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
 }
 
 .schedule-grid {

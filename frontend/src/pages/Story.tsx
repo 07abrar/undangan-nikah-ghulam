@@ -36,10 +36,7 @@ export default function Story() {
   return (
     <div className="section-body">
       <h2 className="section-title">Sebuah Kisah Singkat</h2>
-      <hr
-        className="divider"
-        style={{ marginBottom: "var(--space-xl)" }}
-      />
+      <hr className="divider mb-xl" />
 
       <ol className="timeline">
         {TIMELINE.map((event, index) => {
