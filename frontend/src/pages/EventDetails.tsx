@@ -7,6 +7,13 @@ const VENUE_ADDRESS =
   "W Trans - Sumatra Hwy, Simpang Rima, Peukan Bada, Aceh Besar Regency, Aceh 23232, Indonesia";
 const MAPS_URL = "https://maps.app.goo.gl/vACDFoc9peSG18bL8";
 
+/* Approximate venue coordinates for the OpenStreetMap embed.
+   Refine these to the precise location once known. */
+const VENUE_LAT = 5.5083;
+const VENUE_LNG = 95.2133;
+const MAP_BBOX = `${VENUE_LNG - 0.015},${VENUE_LAT - 0.012},${VENUE_LNG + 0.015},${VENUE_LAT + 0.012}`;
+const MAP_EMBED_URL = `https://www.openstreetmap.org/export/embed.html?bbox=${MAP_BBOX}&layer=mapnik&marker=${VENUE_LAT},${VENUE_LNG}`;
+
 const CALENDAR_URL = (() => {
   const params = new URLSearchParams({
     action: "TEMPLATE",
@@ -48,10 +55,7 @@ export default function EventDetails() {
     <div className="section-body">
       <h2 className="section-title">Akad Nikah dan Resepsi</h2>
       <p className="section-subtitle">Sabtu, 4 Juli 2026</p>
-      <hr
-        className="divider"
-        style={{ marginBottom: "var(--space-xl)" }}
-      />
+      <hr className="divider mb-xl" />
 
       <div className="countdown-grid">
         <CountdownBox value={timeLeft.days} label="Hari" />
@@ -64,8 +68,7 @@ export default function EventDetails() {
         href={CALENDAR_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="button"
-        style={{ marginBottom: "var(--space-xl)" }}
+        className="button mb-xl"
       >
         + Tambah ke Kalender
       </a>
@@ -81,6 +84,12 @@ export default function EventDetails() {
         >
           Buka Maps
         </a>
+        <iframe
+          title="Lokasi Venue"
+          className="venue-map"
+          src={MAP_EMBED_URL}
+          loading="lazy"
+        />
       </div>
 
       <div className="schedule-grid">

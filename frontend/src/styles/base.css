@@ -1,8 +1,4 @@
-/* ============================================================
-   Base — element-level resets and default typography.
-   No class selectors here; this targets raw HTML elements.
-   ============================================================ */
-
+/* ---- Element-level resets and default typography ---------- */
 * {
   box-sizing: border-box;
 }
@@ -23,7 +19,7 @@ h3 {
   font-family: var(--font-serif);
   font-weight: 500;
   margin: 0;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 p {
