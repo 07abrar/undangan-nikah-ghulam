@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const FALLBACK_NAME = "Tamu Undangan";
 
 type Props = {
-  onOpen: () => void;
+  onOpen?: () => void;
 };
 
 export default function Cover({ onOpen }: Props) {
@@ -50,9 +50,11 @@ export default function Cover({ onOpen }: Props) {
           <p className="invited-guest-name">{guestName}</p>
         </div>
 
-        <button type="button" className="button" onClick={onOpen}>
-          Buka Undangan
-        </button>
+        {onOpen && (
+          <button type="button" className="button" onClick={onOpen}>
+            Buka Undangan
+          </button>
+        )}
       </div>
     </div>
   );

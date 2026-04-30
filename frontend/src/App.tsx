@@ -78,7 +78,7 @@ function App() {
 
       <main>
         <section id="cover" className="section">
-          <Cover onOpen={handleOpen} />
+          <Cover />
         </section>
         <section id="quote" className="section">
           <Quote />
