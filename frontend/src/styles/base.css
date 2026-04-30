@@ -1,8 +1,4 @@
-/* ============================================================
-   Base — element-level resets and default typography.
-   No class selectors here; this targets raw HTML elements.
-   ============================================================ */
-
+/* ---- Element-level resets and default typography ---------- */
 * {
   box-sizing: border-box;
 }

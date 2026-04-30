@@ -30,9 +30,11 @@ const NAV_ITEMS: { id: SectionId; label: string }[] = [
 ];
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("cover");
 
   useEffect(() => {
+    if (!isOpen) return;
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -50,7 +52,13 @@ function App() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [isOpen]);
+
+  const handleOpen = () => setIsOpen(true);
+
+  if (!isOpen) {
+    return <Cover onOpen={handleOpen} />;
+  }
 
   return (
     <div className="app-shell">
@@ -70,7 +78,7 @@ function App() {
 
       <main>
         <section id="cover" className="section">
-          <Cover />
+          <Cover onOpen={handleOpen} />
         </section>
         <section id="quote" className="section">
           <Quote />

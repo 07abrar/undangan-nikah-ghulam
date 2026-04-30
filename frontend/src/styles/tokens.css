@@ -1,23 +1,17 @@
 :root {
   /* ---- Colors -------------------------------------------- */
-  /* Brand — warm gold for buttons, links, decorative accents */
-  --color-primary: #c9a96b;
-  --color-primary-dark: #a88a4f;
-  --color-accent: #d4a574;
+  --color-primary: #6b4e3d;
+  --color-primary-dark: #523c2d;
+  --color-accent: #c9a57b;
 
-  /* Surfaces */
-  --color-bg: #ebe9e4;
+  --color-bg: #faf7f2;
   --color-card: #ffffff;
+  --color-text: #2c2520;
+  --color-text-muted: #8a7f75;
+  --color-border: #ece5db;
+  --color-border-soft: #f4efe7;
 
-  /* Text */
-  --color-text: #1f2235;
-  --color-text-muted: #7a7d88;
-
-  /* Borders */
-  --color-border: #d4d2cd;
-  --color-border-soft: #e2e0db;
-
-  /* Status (RSVP attendance) */
+  /* RSVP attendance status */
   --color-hadir-bg: #e8f5e9;
   --color-hadir-text: #2e7d32;
   --color-tidak-hadir-bg: #e1f5fe;
@@ -26,7 +20,7 @@
   --color-mungkin-text: #e65100;
   --color-error: #c62828;
 
-  /* External brand */
+  /* External brands */
   --color-linkedin: #0a66c2;
   --color-linkedin-hover: #004182;
 
@@ -35,23 +29,21 @@
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
 
-  /* Font-size scale */
-  --text-xs: 0.75rem;
+  /* Mobile-first font sizes; tablet+ overrides at the bottom. */
+  --text-xs: 0.7rem;
   --text-sm: 0.8rem;
-  --text-base: 1rem;
-  --text-lg: 1.2rem;
-  --text-xl: 1.4rem;
-  --text-2xl: 1.75rem;
-  --text-3xl: 2.25rem;
-  --text-4xl: 3.5rem;
+  --text-base: 0.95rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.5rem;
 
-  /* Line-height scale */
   --leading-snug: 1.25;
   --leading-normal: 1.5;
   --leading-relaxed: 1.65;
   --leading-loose: 1.7;
 
-  /* Letter-spacing scale */
   --tracking-tight: 0.02em;
   --tracking-wide: 0.08em;
   --tracking-wider: 0.15em;
@@ -63,6 +55,7 @@
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
+  --space-2xl: 48px;
 
   /* ---- Radii --------------------------------------------- */
   --radius-sm: 4px;
@@ -70,7 +63,24 @@
   --radius-card: 12px;
   --radius-button: 9999px;
 
-  /* ---- Layout widths ------------------------------------- */
-  --shell-max-width: 700px;
-  --content-max: 460px;
+  /* ---- Layout widths (mobile) ---------------------------- */
+  --shell-max-width: 100%;
+  --content-max: 100%;
+}
+
+/* Tablet & up (≥768px): scale type, cap layout widths. */
+@media (min-width: 768px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.8rem;
+    --text-base: 1rem;
+    --text-lg: 1.2rem;
+    --text-xl: 1.4rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: 3.5rem;
+
+    --shell-max-width: 700px;
+    --content-max: 460px;
+  }
 }
