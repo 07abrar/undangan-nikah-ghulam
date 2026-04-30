@@ -7,23 +7,8 @@ export default function Cover() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const token = params.get("to");
-    if (!token) return;
-
-    const controller = new AbortController();
-    fetch(`/api/guests/${encodeURIComponent(token)}`, {
-      signal: controller.signal,
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Guest not found");
-        return res.json();
-      })
-      .then((data) => setGuestName(data.name))
-      .catch((err) => {
-        if (err.name === "AbortError") return;
-      });
-
-    return () => controller.abort();
+    const name = params.get("to");
+    if (name) setGuestName(name);
   }, []);
 
   return (
