@@ -267,6 +267,15 @@
   color: #fff;
 }
 
+.button-gold {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.button-gold:hover:not(:disabled) {
+  background: #b88e3a;
+}
+
 /* ---- Forms -------------------------------------------------- */
 .form-stack {
   display: flex;
