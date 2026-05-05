@@ -1,7 +1,7 @@
 export default function Quote() {
   return (
     <div className="card section-body">
-      <p className="plain-capital-text">Bismillahirrahmanirrahim</p>
+      <p className="arabic bismillah">بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ</p>
 
       <p className="arabic" lang="ar">
         وَمِنْ ءَايَـٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًۭا

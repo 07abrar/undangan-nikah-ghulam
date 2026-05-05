@@ -174,7 +174,7 @@
   width: 40px;
   height: 1px;
   background: var(--color-accent);
-  margin: 0 auto;
+  margin: var(--space-md) auto;
 }
 
 .text-center {
@@ -417,9 +417,18 @@
   direction: rtl;
 }
 
+.arabic.bismillah {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-md);
+}
+
 @media (min-width: 768px) {
   .arabic {
     font-size: var(--text-2xl);
+  }
+
+  .arabic.bismillah {
+    font-size: var(--text-xl);
   }
 }
 
