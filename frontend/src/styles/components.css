@@ -140,7 +140,6 @@
 .salam {
   font-family: var(--font-serif);
   font-size: var(--text-lg);
-  font-style: italic;
   color: var(--color-primary);
   letter-spacing: 0.05em;
 }

@@ -2,7 +2,7 @@ export default function Greetings() {
   return (
     <div className="section-body">
       <p className="salam">Assalamualaikum Warahmatullahi Wabarakatuh</p>
-      <p className="long-text body-italic">
+      <p className="long-text">
         Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.
       </p>
       <p className="long-text">
