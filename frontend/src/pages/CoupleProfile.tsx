@@ -10,7 +10,7 @@ export default function CoupleProfile() {
       </p>
 
       <img
-        src="/assets/couple/yasmin_ghulam_wedding.png"
+        src={`${import.meta.env.BASE_URL}assets/couple/yasmin_ghulam_wedding.png`}
         alt="Wedding illustration"
         className="couple-image"
       />
