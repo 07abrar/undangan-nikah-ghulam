@@ -1,8 +1,16 @@
-import coupleImage from "../assets/yasmin_ghulam_wedding.png";
+import coupleImage from "../assets/couple/yasmin_ghulam_wedding.png";
 
 export default function CoupleProfile() {
   return (
     <div className="section-body">
+      <p className="salam">Assalamualaikum Warahmatullahi Wabarakatuh</p>
+      <p className="long-text">
+        Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.
+      </p>
+      <p className="long-text">
+        Kami mengundang Bapak/Ibu/Saudara(i) pada acara pernikahan kami.
+      </p>
+
       <img
         src={coupleImage}
         alt="Wedding illustration"

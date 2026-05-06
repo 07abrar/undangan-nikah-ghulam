@@ -1,15 +1,17 @@
 :root {
   /* ---- Colors -------------------------------------------- */
-  --color-primary: #6b4e3d;
-  --color-primary-dark: #523c2d;
-  --color-accent: #c9a57b;
+  /* Bright-dark-gold: near-black for structure + body, warm gold for accents,
+     near-white surface. Achromatic frame makes the gold pop. */
+  --color-primary: #1a1a1a;
+  --color-primary-dark: #000000;
+  --color-accent: #c9a14d;
 
-  --color-bg: #faf7f2;
+  --color-bg: #fafafa;
   --color-card: #ffffff;
-  --color-text: #2c2520;
-  --color-text-muted: #8a7f75;
-  --color-border: #ece5db;
-  --color-border-soft: #f4efe7;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6e6e6e;
+  --color-border: #e5e5e5;
+  --color-border-soft: #f0f0f0;
 
   /* RSVP attendance status */
   --color-hadir-bg: #e8f5e9;
@@ -26,8 +28,9 @@
 
   /* ---- Typography ---------------------------------------- */
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+  --font-script: "Bonheur Royale", cursive;
 
   /* Mobile-first font sizes; tablet+ overrides at the bottom. */
   --text-xs: 0.7rem;

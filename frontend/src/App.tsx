@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
 import EventDetails from "./pages/EventDetails";
-import Greetings from "./pages/Greetings";
 import RSVP from "./pages/RSVP";
 import Story from "./pages/Story";
 import Quote from "./pages/Quote";
@@ -11,7 +10,6 @@ import Quote from "./pages/Quote";
 const SECTION_IDS = [
   "cover",
   "quote",
-  "greetings",
   "couple_profile",
   "event_details",
   "story",
@@ -19,19 +17,19 @@ const SECTION_IDS = [
 ] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
-const NAV_ITEMS: { id: SectionId; label: string }[] = [
-  { id: "cover", label: "Cover" },
-  { id: "quote", label: "Quote" },
-  { id: "greetings", label: "Salam" },
-  { id: "couple_profile", label: "Calon Mempelai" },
-  { id: "event_details", label: "Detail Acara" },
-  { id: "story", label: "Kisah" },
-  { id: "rsvp", label: "RSVP" },
+const NAV_ITEMS: { id: SectionId; icon: string; label: string }[] = [
+  { id: "cover", icon: "/src/assets/icon/cover.svg", label: "Cover" },
+  { id: "quote", icon: "/src/assets/icon/quote.svg", label: "Quote" },
+  { id: "couple_profile", icon: "/src/assets/icon/calon_mempelai.svg", label: "Calon Mempelai" },
+  { id: "event_details", icon: "/src/assets/icon/detail_acara.svg", label: "Detail Acara" },
+  { id: "story", icon: "/src/assets/icon/kisah.svg", label: "Kisah" },
+  { id: "rsvp", icon: "/src/assets/icon/rsvp.svg", label: "RSVP" },
 ];
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("cover");
+  const [isNavHovered, setIsNavHovered] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -62,19 +60,22 @@ function App() {
 
   return (
     <div className="app-shell">
-      <header className="app-header">
-        <nav className="app-nav">
-          {NAV_ITEMS.map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className={`nav-link${activeSection === id ? " is-active" : ""}`}
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </header>
+      <nav
+        className="floating-nav"
+        onMouseEnter={() => setIsNavHovered(true)}
+        onMouseLeave={() => setIsNavHovered(false)}
+      >
+        {NAV_ITEMS.map(({ id, icon, label }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={`nav-link${activeSection === id ? " is-active" : ""}`}
+            title={label}
+          >
+            <img src={icon} alt={label} />
+          </a>
+        ))}
+      </nav>
 
       <main>
         <section id="cover" className="section">
@@ -82,9 +83,6 @@ function App() {
         </section>
         <section id="quote" className="section">
           <Quote />
-        </section>
-        <section id="greetings" className="section">
-          <Greetings />
         </section>
         <section id="couple_profile" className="section">
           <CoupleProfile />

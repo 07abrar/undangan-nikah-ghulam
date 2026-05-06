@@ -3,6 +3,7 @@
   max-width: var(--shell-max-width);
   margin: 0 auto;
   padding: var(--space-md);
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -11,48 +12,68 @@
   }
 }
 
-.app-header {
-  text-align: center;
-}
-
-/* Mobile: nav scrolls horizontally; desktop: items center, no scroll. */
-.app-nav {
+/* Floating vertical navigation sidebar */
+.floating-nav {
+  position: fixed;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-sm);
-  overflow-x: auto;
-  scrollbar-width: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.app-nav::-webkit-scrollbar {
-  display: none;
+.floating-nav:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .nav-link {
-  white-space: nowrap;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
   text-decoration: none;
-  color: var(--color-primary);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  transition: color 0.2s;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  position: relative;
 }
 
-.nav-link:hover,
+.nav-link img {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover img {
+  opacity: 1;
+}
+
 .nav-link.is-active {
-  color: var(--color-primary-dark);
+  background: var(--color-primary);
+}
+
+.nav-link.is-active img {
+  opacity: 1;
+  filter: brightness(0) invert(1);
 }
 
 @media (min-width: 768px) {
-  .app-nav {
-    justify-content: center;
-    gap: var(--space-lg);
-    padding: var(--space-xl) var(--space-lg);
-    overflow-x: visible;
+  .floating-nav {
+    left: 12px;
   }
 }
 
@@ -130,7 +151,9 @@
 }
 
 .plain-capital-text {
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
+  font-weight: 500;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -140,7 +163,6 @@
 .salam {
   font-family: var(--font-serif);
   font-size: var(--text-lg);
-  font-style: italic;
   color: var(--color-primary);
   letter-spacing: 0.05em;
 }
@@ -175,7 +197,7 @@
   width: 40px;
   height: 1px;
   background: var(--color-accent);
-  margin: 0 auto;
+  margin: var(--space-md) auto;
 }
 
 .text-center {
@@ -225,12 +247,13 @@
   color: #fff;
   border: none;
   border-radius: var(--radius-button);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
-  letter-spacing: var(--tracking-wider);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  font-family: inherit;
   transition:
     background 0.2s,
     opacity 0.2s,
@@ -261,6 +284,15 @@
 .button-outline:hover:not(:disabled) {
   background: var(--color-primary);
   color: #fff;
+}
+
+.button-gold {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.button-gold:hover:not(:disabled) {
+  background: #b88e3a;
 }
 
 /* ---- Forms -------------------------------------------------- */
@@ -369,10 +401,9 @@
 }
 
 .couple-name-cover {
-  font-family: var(--font-serif);
+  font-family: var(--font-script);
   font-size: var(--text-4xl);
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.1;
   color: var(--color-primary);
   overflow-wrap: break-word;
@@ -418,9 +449,18 @@
   direction: rtl;
 }
 
+.arabic.bismillah {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-md);
+}
+
 @media (min-width: 768px) {
   .arabic {
     font-size: var(--text-2xl);
+  }
+
+  .arabic.bismillah {
+    font-size: var(--text-xl);
   }
 }
 

@@ -68,9 +68,9 @@ export default function EventDetails() {
         href={CALENDAR_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="button mb-xl"
+        className="button button-gold mb-xl"
       >
-        + Tambah ke Kalender
+        Tambah ke Kalender
       </a>
 
       <div className="card venue-card">
