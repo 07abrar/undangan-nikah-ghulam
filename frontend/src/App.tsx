@@ -18,18 +18,17 @@ const SECTION_IDS = [
 type SectionId = (typeof SECTION_IDS)[number];
 
 const NAV_ITEMS: { id: SectionId; icon: string; label: string }[] = [
-  { id: "cover", icon: "/src/assets/icon/cover.svg", label: "Cover" },
-  { id: "quote", icon: "/src/assets/icon/quote.svg", label: "Quote" },
-  { id: "couple_profile", icon: "/src/assets/icon/calon_mempelai.svg", label: "Calon Mempelai" },
-  { id: "event_details", icon: "/src/assets/icon/detail_acara.svg", label: "Detail Acara" },
-  { id: "story", icon: "/src/assets/icon/kisah.svg", label: "Kisah" },
-  { id: "rsvp", icon: "/src/assets/icon/rsvp.svg", label: "RSVP" },
+  { id: "cover", icon: "/assets/icon/cover.svg", label: "Cover" },
+  { id: "quote", icon: "/assets/icon/quote.svg", label: "Quote" },
+  { id: "couple_profile", icon: "/assets/icon/calon_mempelai.svg", label: "Calon Mempelai" },
+  { id: "event_details", icon: "/assets/icon/detail_acara.svg", label: "Detail Acara" },
+  { id: "story", icon: "/assets/icon/kisah.svg", label: "Kisah" },
+  { id: "rsvp", icon: "/assets/icon/rsvp.svg", label: "RSVP" },
 ];
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("cover");
-  const [isNavHovered, setIsNavHovered] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -60,11 +59,7 @@ function App() {
 
   return (
     <div className="app-shell">
-      <nav
-        className="floating-nav"
-        onMouseEnter={() => setIsNavHovered(true)}
-        onMouseLeave={() => setIsNavHovered(false)}
-      >
+      <nav className="floating-nav">
         {NAV_ITEMS.map(({ id, icon, label }) => (
           <a
             key={id}

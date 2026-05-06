@@ -1,5 +1,3 @@
-import coupleImage from "../assets/couple/yasmin_ghulam_wedding.png";
-
 export default function CoupleProfile() {
   return (
     <div className="section-body">
@@ -12,7 +10,7 @@ export default function CoupleProfile() {
       </p>
 
       <img
-        src={coupleImage}
+        src="/assets/couple/yasmin_ghulam_wedding.png"
         alt="Wedding illustration"
         className="couple-image"
       />
