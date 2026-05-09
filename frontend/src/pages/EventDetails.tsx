@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Button } from "../components/Button";
+import { CountdownBox } from "../components/CountdownBox";
 
 const TARGET_MS = Date.UTC(2026, 6, 4, 9, 0, 0);
 
@@ -55,41 +57,33 @@ export default function EventDetails() {
     <div className="section-body">
       <h2 className="section-title">Akad Nikah dan Resepsi</h2>
       <p className="section-subtitle">Sabtu, 4 Juli 2026</p>
-      <hr className="divider mb-xl" />
+      <hr className="divider" />
 
-      <div className="countdown-grid">
-        <CountdownBox value={timeLeft.days} label="Hari" />
-        <CountdownBox value={timeLeft.hours} label="Jam" />
-        <CountdownBox value={timeLeft.minutes} label="Menit" />
-        <CountdownBox value={timeLeft.seconds} label="Detik" />
+      <div className="countdown-section">
+        <div className="countdown-grid">
+          <CountdownBox value={timeLeft.days} label="Hari" />
+          <CountdownBox value={timeLeft.hours} label="Jam" />
+          <CountdownBox value={timeLeft.minutes} label="Menit" />
+          <CountdownBox value={timeLeft.seconds} label="Detik" />
+        </div>
+
+        <Button href={CALENDAR_URL} className="button-gold">
+          Tambah ke Kalender
+        </Button>
       </div>
-
-      <a
-        href={CALENDAR_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="button button-gold mb-xl"
-      >
-        Tambah ke Kalender
-      </a>
 
       <div className="card venue-card">
         <h3 className="venue-name">{VENUE_NAME}</h3>
-        <p className="venue-address">{VENUE_ADDRESS}</p>
-        <a
-          href={MAPS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="button button-outline"
-        >
-          Buka Maps
-        </a>
         <iframe
           title="Lokasi Venue"
           className="venue-map"
           src={MAP_EMBED_URL}
           loading="lazy"
         />
+        <p className="venue-address">{VENUE_ADDRESS}</p>
+        <Button href={MAPS_URL} className="button-gold">
+          Buka Maps
+        </Button>
       </div>
 
       <div className="schedule-grid">
@@ -102,17 +96,6 @@ export default function EventDetails() {
           <p className="schedule-time">Pukul 11.00 WIB s/d selesai</p>
         </div>
       </div>
-    </div>
-  );
-}
-
-function CountdownBox({ value, label }: { value: number; label: string }) {
-  return (
-    <div className="card card-tight countdown-box">
-      <span className="countdown-number">
-        {value.toString().padStart(2, "0")}
-      </span>
-      <span className="plain-capital-text">{label}</span>
     </div>
   );
 }

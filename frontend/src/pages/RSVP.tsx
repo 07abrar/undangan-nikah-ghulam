@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "../components/Button";
 
 const AttendingStatus = {
   HADIR: "hadir",
@@ -156,9 +157,9 @@ export default function RSVP() {
           />
         </label>
 
-        <button onClick={handleSubmit} disabled={submitting} className="button button-gold">
+        <Button className="button-gold" onClick={handleSubmit} disabled={submitting}>
           {submitting ? "Mengirim..." : "Kirim"}
-        </button>
+        </Button>
 
         {error && <p className="form-error">{error}</p>}
       </div>

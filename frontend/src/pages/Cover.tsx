@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "../components/Button";
 
 const FALLBACK_NAME = "Tamu Undangan";
 
@@ -51,9 +52,7 @@ export default function Cover({ onOpen }: Props) {
         </div>
 
         {onOpen && (
-          <button type="button" className="button" onClick={onOpen}>
-            Buka Undangan
-          </button>
+          <Button onClick={onOpen}>Buka Undangan</Button>
         )}
       </div>
     </div>
