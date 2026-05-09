@@ -637,7 +637,7 @@
   .site-footer {
     margin: var(--space-lg) calc(-1 * var(--space-lg))
       calc(-1 * var(--space-lg));
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-lg) var(--space-lg);
   }
 }
 
