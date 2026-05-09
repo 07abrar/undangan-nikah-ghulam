@@ -157,7 +157,11 @@ export default function RSVP() {
           />
         </label>
 
-        <Button className="button-gold" onClick={handleSubmit} disabled={submitting}>
+        <Button
+          className="button-gold"
+          onClick={handleSubmit}
+          disabled={submitting}
+        >
           {submitting ? "Mengirim..." : "Kirim"}
         </Button>
 

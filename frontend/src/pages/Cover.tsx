@@ -50,9 +50,7 @@ export default function Cover({ onOpen }: Props) {
           <p className="invited-guest-name">{guestName}</p>
         </div>
 
-        {onOpen && (
-          <Button onClick={onOpen}>Buka Undangan</Button>
-        )}
+        {onOpen && <Button onClick={onOpen}>Buka Undangan</Button>}
       </div>
     </div>
   );
