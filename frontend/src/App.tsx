@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
 import EventDetails from "./pages/EventDetails";
+import Footer from "./pages/Footer";
 import RSVP from "./pages/RSVP";
 import Story from "./pages/Story";
 import Quote from "./pages/Quote";
@@ -100,6 +101,7 @@ function App() {
           <RSVP />
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

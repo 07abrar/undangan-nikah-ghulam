@@ -25,6 +25,14 @@
   /* External brands */
   --color-linkedin: #0a66c2;
   --color-linkedin-hover: #004182;
+  --color-github-bg: #21262d;
+  --color-github-bg-hover: #30363d;
+  --color-github-border: #30363d;
+
+  /* Footer (GitHub dark theme palette) */
+  --color-footer-bg: #0d1117;
+  --color-footer-text: #c9d1d9;
+  --color-footer-text-muted: #8b949e;
 
   /* ---- Typography ---------------------------------------- */
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
