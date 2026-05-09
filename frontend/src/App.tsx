@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
+import MusicPlayer from "./components/MusicPlayer";
 import CoupleProfile from "./pages/CoupleProfile";
 import Cover from "./pages/Cover";
 import EventDetails from "./pages/EventDetails";
 import Footer from "./pages/Footer";
+import Quote from "./pages/Quote";
 import RSVP from "./pages/RSVP";
 import Story from "./pages/Story";
-import Quote from "./pages/Quote";
 
 const SECTION_IDS = [
   "cover",
@@ -38,6 +39,8 @@ const NAV_ITEMS: { id: SectionId; icon: string; label: string }[] = [
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("cover");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -60,49 +63,81 @@ function App() {
     return () => observer.disconnect();
   }, [isOpen]);
 
-  const handleOpen = () => setIsOpen(true);
+  const handleOpen = () => {
+    setIsOpen(true);
+    if (audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {});
+    }
+  };
 
-  if (!isOpen) {
-    return <Cover onOpen={handleOpen} />;
-  }
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {});
+    }
+  };
 
   return (
-    <div className="app-shell">
-      <nav className="floating-nav">
-        {NAV_ITEMS.map(({ id, icon, label }) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            className={`nav-link${activeSection === id ? " is-active" : ""}`}
-            title={label}
-          >
-            <img src={`${import.meta.env.BASE_URL}${icon}`} alt={label} />
-          </a>
-        ))}
-      </nav>
+    <>
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}assets/music/a_town_with_an_ocean_free.mp3`}
+        loop
+        preload="auto"
+      />
+      {!isOpen ? (
+        <Cover onOpen={handleOpen} />
+      ) : (
+        <div className="app-shell">
+          <div className="floating-nav-group">
+            <nav className="floating-nav">
+              {NAV_ITEMS.map(({ id, icon, label }) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className={`nav-link${activeSection === id ? " is-active" : ""}`}
+                  title={label}
+                >
+                  <img src={`${import.meta.env.BASE_URL}${icon}`} alt={label} />
+                </a>
+              ))}
+            </nav>
+            <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
+          </div>
 
-      <main>
-        <section id="cover" className="section">
-          <Cover />
-        </section>
-        <section id="quote" className="section">
-          <Quote />
-        </section>
-        <section id="couple_profile" className="section">
-          <CoupleProfile />
-        </section>
-        <section id="event_details" className="section">
-          <EventDetails />
-        </section>
-        <section id="story" className="section">
-          <Story />
-        </section>
-        <section id="rsvp" className="section">
-          <RSVP />
-        </section>
-      </main>
-      <Footer />
-    </div>
+          <main>
+            <section id="cover" className="section">
+              <Cover />
+            </section>
+            <section id="quote" className="section">
+              <Quote />
+            </section>
+            <section id="couple_profile" className="section">
+              <CoupleProfile />
+            </section>
+            <section id="event_details" className="section">
+              <EventDetails />
+            </section>
+            <section id="story" className="section">
+              <Story />
+            </section>
+            <section id="rsvp" className="section">
+              <RSVP />
+            </section>
+          </main>
+          <Footer />
+        </div>
+      )}
+    </>
   );
 }
 

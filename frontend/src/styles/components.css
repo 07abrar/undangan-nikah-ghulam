@@ -12,12 +12,21 @@
   }
 }
 
-/* Floating vertical navigation sidebar */
-.floating-nav {
+/* Wrapper that fixes both the nav and music control together */
+.floating-nav-group {
   position: fixed;
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  z-index: 1000;
+}
+
+/* Floating vertical navigation sidebar */
+.floating-nav {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -27,7 +36,6 @@
   border-radius: var(--radius-md);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  z-index: 1000;
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
@@ -37,7 +45,46 @@
 
 .floating-nav:hover {
   opacity: 1;
-  transform: translateY(-50%) scale(1.05);
+  transform: scale(1.05);
+}
+
+/* Music playback control */
+.music-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: 0.5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: opacity 0.3s ease;
+}
+
+.music-control:hover {
+  opacity: 1;
+}
+
+.music-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-primary);
+}
+
+.music-btn svg {
+  width: 12px;
+  height: 12px;
+  display: block;
 }
 
 .nav-link {
@@ -71,12 +118,6 @@
 .nav-link.is-active img {
   opacity: 1;
   filter: brightness(0) invert(1);
-}
-
-@media (min-width: 768px) {
-  .floating-nav {
-    left: 12px;
-  }
 }
 
 /* ---- Sections ---------------------------------------------- */
