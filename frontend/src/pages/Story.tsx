@@ -15,7 +15,7 @@ const TIMELINE: StoryEvent[] = [
   {
     date: "1 Juni 2025",
     description:
-      "Taaruf pertama kami via jarak jauh. Di bulan ini juga kami memutuskan untuk lanjut ke khitbah.",
+      "Perkenalan pertama kami via jarak jauh. Di bulan ini juga kami memutuskan untuk lanjut ke khitbah.",
   },
   {
     date: "11 Oktober 2025",
@@ -27,7 +27,7 @@ const TIMELINE: StoryEvent[] = [
   },
   {
     date: "18 Oktober 2025",
-    description: "Taaruf terakhir kami di rumah Yasmin.",
+    description: "Hari terakhir kami berkenalan.",
   },
   { date: "4 Juli 2026", description: "Kami akan menikah, insyaallah." },
 ];
@@ -36,7 +36,7 @@ export default function Story() {
   return (
     <div className="section-body">
       <h2 className="section-title">Sebuah Kisah Singkat</h2>
-      <hr className="divider mb-xl" />
+      <hr className="divider" />
 
       <ol className="timeline">
         {TIMELINE.map((event, index) => {

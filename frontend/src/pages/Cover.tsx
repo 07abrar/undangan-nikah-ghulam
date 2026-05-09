@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-
-const FALLBACK_NAME = "Tamu Undangan";
+import { Button } from "../components/Button";
+import { FALLBACK_GUEST_NAME } from "../const";
 
 type Props = {
   onOpen?: () => void;
 };
 
 export default function Cover({ onOpen }: Props) {
-  const [guestName, setGuestName] = useState(FALLBACK_NAME);
+  const [guestName, setGuestName] = useState(FALLBACK_GUEST_NAME);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -35,11 +35,7 @@ export default function Cover({ onOpen }: Props) {
           <p className="invited-guest-name">{guestName}</p>
         </div>
 
-        {onOpen && (
-          <button type="button" className="button" onClick={onOpen}>
-            Buka Undangan
-          </button>
-        )}
+        {onOpen && <Button onClick={onOpen}>Buka Undangan</Button>}
       </div>
     </div>
   );

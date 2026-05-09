@@ -1,22 +1,27 @@
 export default function Quote() {
   return (
-    <div className="card section-body">
-      <p className="arabic bismillah">بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ</p>
+    <div className="section-quote">
+      <div className="card section-body">
+        <p className="arabic bismillah">
+          بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ
+        </p>
 
-      <p className="arabic" lang="ar">
-        وَمِنْ ءَايَـٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًۭا
-        لِّتَسْكُنُوٓا۟ إِلَيْهَا (٢١)
-      </p>
+        <p className="arabic" lang="ar">
+          وَمِنۡ ءَايَٰتِهِۦٓ أَنۡ خَلَقَ لَكُم مِّنۡ أَنفُسِكُمۡ أَزۡوَٰجٗا
+          لِّتَسۡكُنُوٓاْ إِلَيۡهَا وَجَعَلَ بَيۡنَكُم مَّوَدَّةٗ وَرَحۡمَةًۚ
+        </p>
 
-      <hr className="divider" />
+        <hr className="divider" />
 
-      <p className="long-text body-italic">
-        "Dan di antara tanda-tanda kekuasaan Allah ialah Dia menciptakan untukmu
-        pasangan-pasangan dari jenismu sendiri, agar kamu cenderung dan merasa
-        tenteram kepadanya"
-      </p>
+        <p className="long-text body-italic">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+          pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
+          dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
+          kasih dan sayang."
+        </p>
 
-      <p className="quote-source">(QS. Ar-Ruum: 21)</p>
+        <p className="quote-source">(QS. Ar-Ruum: 21)</p>
+      </div>
     </div>
   );
 }
