@@ -613,7 +613,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  padding: var(--space-md) var(--space-md);
+  padding: var(--space-md);
   margin: var(--space-lg) calc(-1 * var(--space-md)) calc(-1 * var(--space-md));
   background: var(--color-footer-bg);
   color: var(--color-footer-text);
@@ -635,9 +635,9 @@
 
 @media (min-width: 768px) {
   .site-footer {
+    padding: var(--space-lg);
     margin: var(--space-lg) calc(-1 * var(--space-lg))
       calc(-1 * var(--space-lg));
-    padding: var(--space-lg) var(--space-lg);
   }
 }
 
