@@ -1,5 +1,5 @@
-const VENUE_LAT = 5.5226955;
-const VENUE_LNG = 95.2735277;
+import { VENUE_LAT, VENUE_LNG } from "../const";
+
 const MAP_EMBED_URL = `https://maps.google.com/maps?q=${VENUE_LAT},${VENUE_LNG}&z=17&output=embed`;
 
 export function GoogleMap() {

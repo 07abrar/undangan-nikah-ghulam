@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
-
-const FALLBACK_NAME = "Tamu Undangan";
+import { FALLBACK_GUEST_NAME } from "../const";
 
 type Props = {
   onOpen?: () => void;
 };
 
 export default function Cover({ onOpen }: Props) {
-  const [guestName, setGuestName] = useState(FALLBACK_NAME);
+  const [guestName, setGuestName] = useState(FALLBACK_GUEST_NAME);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
