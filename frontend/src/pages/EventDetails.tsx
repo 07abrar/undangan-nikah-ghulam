@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import { CountdownBox } from "../components/CountdownBox";
 import { GoogleMap } from "../components/GoogleMap";
-import { TARGET_MS, VENUE_NAME, VENUE_ADDRESS, MAPS_URL, CALENDAR_URL } from "../const";
+import {
+  TARGET_MS,
+  VENUE_NAME,
+  VENUE_ADDRESS,
+  MAPS_URL,
+  CALENDAR_URL,
+} from "../const";
 
 type TimeLeft = {
   days: number;
@@ -61,7 +67,7 @@ export default function EventDetails() {
       <div className="schedule-grid">
         <div className="card card-snug">
           <h3 className="schedule-event">Akad Nikah</h3>
-          <p className="schedule-time">Pukul 09.00 WIB</p>
+          <p className="schedule-time">Pukul 08.00 WIB</p>
         </div>
         <div className="card card-snug">
           <h3 className="schedule-event">Resepsi</h3>
