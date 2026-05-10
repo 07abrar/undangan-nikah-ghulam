@@ -21,9 +21,9 @@ export default function Cover({ onOpen }: Props) {
         <p className="plain-capital-text">Pernikahan</p>
 
         <h1 className="couple-names">
-          <span className="couple-name-cover">Yasmin</span>
-          <span className="couple-ampersand">&amp;</span>
-          <span className="couple-name-cover">Ghulam Abrar</span>
+          <p className="couple-name-cover">Ghulam Abrar</p>
+          <p className="couple-ampersand">&amp;</p>
+          <p className="couple-name-cover">Yasmin</p>
         </h1>
 
         <p className="event-date-cover">4 Juli 2026</p>
