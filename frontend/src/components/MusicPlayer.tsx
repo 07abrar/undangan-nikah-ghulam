@@ -26,7 +26,7 @@ export default function MusicPlayer(props: Props) {
         onClick={onToggle}
         title={isPlaying ? "Pause music" : "Play music"}
       >
-        {isPlaying ? PlayIcon : PauseIcon}
+        {isPlaying ? PauseIcon : PlayIcon}
       </button>
     </div>
   );

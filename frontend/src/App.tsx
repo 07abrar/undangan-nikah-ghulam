@@ -49,6 +49,19 @@ function App() {
     return () => observer.disconnect();
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return;
+      if (document.hidden) {
+        audioRef.current.pause();
+      } else if (isPlaying) {
+        audioRef.current.play().catch(() => {});
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, [isPlaying]);
+
   const handleOpen = () => {
     setIsOpen(true);
     if (audioRef.current) {
