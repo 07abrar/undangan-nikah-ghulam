@@ -4,7 +4,8 @@ type SectionId =
   | "couple_profile"
   | "event_details"
   | "story"
-  | "rsvp";
+  | "rsvp"
+  | "thanks";
 
 const NAV_ITEMS: { id: SectionId; icon: string; label: string }[] = [
   { id: "cover", icon: "assets/icon/cover.svg", label: "Cover" },

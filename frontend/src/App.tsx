@@ -9,6 +9,7 @@ import Footer from "./pages/Footer";
 import Quote from "./pages/Quote";
 import RSVP from "./pages/RSVP";
 import Story from "./pages/Story";
+import Thanks from "./pages/Thanks";
 
 const SECTION_IDS = [
   "cover",
@@ -17,6 +18,7 @@ const SECTION_IDS = [
   "event_details",
   "story",
   "rsvp",
+  "thanks",
 ] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
@@ -105,6 +107,9 @@ function App() {
             </section>
             <section id="rsvp" className="section">
               <RSVP />
+            </section>
+            <section id="thanks" className="section">
+              <Thanks />
             </section>
           </main>
           <Footer />
