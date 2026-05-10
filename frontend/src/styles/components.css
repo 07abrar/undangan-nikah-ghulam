@@ -18,7 +18,6 @@
    16. Footer
    ============================================================= */
 
-
 /* ---- 1. App Shell & Layout ---------------------------------- */
 .app-shell {
   max-width: var(--shell-max-width);
@@ -37,6 +36,9 @@
   min-height: 100vh;
   min-height: 100dvh;
   margin-bottom: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-body {
@@ -49,7 +51,6 @@
     padding: var(--space-xl) var(--space-lg);
   }
 }
-
 
 /* ---- 2. Navigation & Music Control -------------------------- */
 /* Wrapper that fixes both the nav and music control together */
@@ -158,7 +159,6 @@
   display: block;
 }
 
-
 /* ---- 3. Shared – Typography & Divider ----------------------- */
 .section-title {
   font-size: var(--text-2xl);
@@ -221,7 +221,6 @@
   text-align: center;
 }
 
-
 /* ---- 4. Shared – Cards -------------------------------------- */
 .card {
   background: var(--color-card);
@@ -255,7 +254,6 @@
     padding: var(--space-sm) var(--space-lg);
   }
 }
-
 
 /* ---- 5. Shared – Buttons ------------------------------------ */
 .button {
@@ -302,7 +300,6 @@
 .button-gold:hover:not(:disabled) {
   background: #b88e3a;
 }
-
 
 /* ---- 6. Shared – Forms -------------------------------------- */
 .form-stack {
@@ -365,7 +362,6 @@
   margin: 0;
 }
 
-
 /* ---- 7. Shared – Badges (RSVP attendance status) ------------ */
 .badge {
   padding: 2px 8px;
@@ -388,7 +384,6 @@
   color: var(--color-mungkin-text);
 }
 
-
 /* ---- 8. Shared – Avatar (initials circle) ------------------- */
 .avatar {
   width: 40px;
@@ -402,7 +397,6 @@
   font-size: 14px;
   flex-shrink: 0;
 }
-
 
 /* ---- 9. [Page] Cover --------------------------------------- */
 /* Full-height hero. cover-top fills leftover space (names center
@@ -491,7 +485,6 @@
   color: var(--color-text);
 }
 
-
 /* ---- 10. [Page] Quote -------------------------------------- */
 .section-quote {
   display: flex;
@@ -536,7 +529,6 @@
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-muted);
 }
-
 
 /* ---- 11. [Page] Couple Profile ----------------------------- */
 .couple-image {
@@ -654,7 +646,6 @@
 .github:hover {
   background: var(--color-github-bg-hover);
 }
-
 
 /* ---- 12. [Page] Story (Timeline) --------------------------- */
 .timeline {
@@ -775,7 +766,6 @@
   }
 }
 
-
 /* ---- 13. [Page] Event Details (Countdown / Venue / Schedule) */
 .countdown-section {
   display: flex;
@@ -870,11 +860,10 @@
   color: var(--color-text);
 }
 
-
 /* ---- 14. [Page] RSVP --------------------------------------- */
 .section-form {
   max-width: var(--content-max);
-  margin: 0 auto;
+  margin: 0 var(--space-xl);
   padding: var(--space-xl) 0;
 }
 
@@ -926,7 +915,6 @@
   margin: 0;
 }
 
-
 /* ---- 15. [Page] Thanks ------------------------------------- */
 .section-thanks {
   display: flex;
@@ -945,7 +933,6 @@
 .parents-group {
   margin-top: var(--space-md);
 }
-
 
 /* ---- 16. Footer -------------------------------------------- */
 .site-footer {
