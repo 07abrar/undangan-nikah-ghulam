@@ -59,7 +59,8 @@ function App() {
       }
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [isPlaying]);
 
   const handleOpen = () => {
@@ -70,6 +71,13 @@ function App() {
         .then(() => setIsPlaying(true))
         .catch(() => {});
     }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document
+          .getElementById("quote")
+          ?.scrollIntoView({ behavior: "smooth" });
+      });
+    });
   };
 
   const toggleMusic = () => {
