@@ -406,15 +406,25 @@
   min-height: 100vh;
   /* dvh excludes the mobile URL bar so the button never clips. */
   min-height: 100dvh;
+  background-image: url("/assets/background/invitation_background.png");
+  background-repeat: repeat;
+  background-size: cover;
+  /* Break out of app-shell padding so background fills edge-to-edge */
+  margin-left: calc(-1 * var(--space-md));
+  margin-right: calc(-1 * var(--space-md));
+  margin-top: calc(-1 * var(--space-md));
+  padding: var(--space-xl) var(--space-md);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--space-xl) var(--space-md);
 }
 
 @media (min-width: 768px) {
   .section-cover {
+    margin-left: calc(-1 * var(--space-lg));
+    margin-right: calc(-1 * var(--space-lg));
+    margin-top: calc(-1 * var(--space-lg));
     padding: var(--space-2xl) var(--space-lg);
   }
 }

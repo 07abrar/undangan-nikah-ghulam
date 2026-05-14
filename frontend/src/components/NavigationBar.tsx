@@ -22,6 +22,7 @@ const NAV_ITEMS: { id: SectionId; icon: string; label: string }[] = [
   },
   { id: "story", icon: "assets/icon/kisah.svg", label: "Kisah" },
   { id: "rsvp", icon: "assets/icon/rsvp.svg", label: "RSVP" },
+  { id: "thanks", icon: "assets/icon/thanks.svg", label: "Thanks" },
 ];
 
 interface NavigationBarProps {
