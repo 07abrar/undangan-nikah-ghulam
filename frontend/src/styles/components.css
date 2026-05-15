@@ -410,9 +410,7 @@
   background-repeat: repeat;
   background-size: cover;
   /* Break out of app-shell padding so background fills edge-to-edge */
-  margin-left: calc(-1 * var(--space-md));
-  margin-right: calc(-1 * var(--space-md));
-  margin-top: calc(-1 * var(--space-md));
+  margin: calc(-1 * var(--space-md));
   padding: var(--space-xl) var(--space-md);
   display: flex;
   flex-direction: column;
@@ -422,9 +420,7 @@
 
 @media (min-width: 768px) {
   .section-cover {
-    margin-left: calc(-1 * var(--space-lg));
-    margin-right: calc(-1 * var(--space-lg));
-    margin-top: calc(-1 * var(--space-lg));
+    margin: calc(-1 * var(--space-md));
     padding: var(--space-2xl) var(--space-lg);
   }
 }

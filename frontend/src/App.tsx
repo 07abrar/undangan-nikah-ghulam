@@ -101,41 +101,43 @@ function App() {
         loop
         preload="auto"
       />
-      {!isOpen ? (
-        <Cover onOpen={handleOpen} />
-      ) : (
-        <div className="app-shell">
-          <div className="floating-nav-group">
-            <NavigationBar activeSection={activeSection} />
-            <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
-          </div>
+      <div className="app-shell">
+        {!isOpen ? (
+          <Cover onOpen={handleOpen} />
+        ) : (
+          <>
+            <div className="floating-nav-group">
+              <NavigationBar activeSection={activeSection} />
+              <MusicPlayer isPlaying={isPlaying} onToggle={toggleMusic} />
+            </div>
 
-          <main>
-            <section id="cover" className="section">
-              <Cover />
-            </section>
-            <section id="quote" className="section">
-              <Quote />
-            </section>
-            <section id="couple_profile" className="section">
-              <CoupleProfile />
-            </section>
-            <section id="event_details" className="section">
-              <EventDetails />
-            </section>
-            <section id="story" className="section">
-              <Story />
-            </section>
-            <section id="rsvp" className="section">
-              <RSVP />
-            </section>
-            <section id="thanks" className="section">
-              <Thanks />
-            </section>
-          </main>
-          <Footer />
-        </div>
-      )}
+            <main>
+              <section id="cover" className="section">
+                <Cover />
+              </section>
+              <section id="quote" className="section">
+                <Quote />
+              </section>
+              <section id="couple_profile" className="section">
+                <CoupleProfile />
+              </section>
+              <section id="event_details" className="section">
+                <EventDetails />
+              </section>
+              <section id="story" className="section">
+                <Story />
+              </section>
+              <section id="rsvp" className="section">
+                <RSVP />
+              </section>
+              <section id="thanks" className="section">
+                <Thanks />
+              </section>
+            </main>
+            <Footer />
+          </>
+        )}
+      </div>
     </>
   );
 }
