@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 
 const AttendingStatus = {
@@ -16,30 +16,6 @@ type RSVP = {
   message: string | null;
   created_at: string;
 };
-
-const SAMPLE_RSVPS: RSVP[] = [
-  {
-    id: 1,
-    name: "Ghulam",
-    attending: AttendingStatus.HADIR,
-    message: "Tes",
-    created_at: "2026-04-15T10:30:00Z",
-  },
-  {
-    id: 2,
-    name: "Abrar",
-    attending: AttendingStatus.MUNGKIN,
-    message: "Tes",
-    created_at: "2026-04-20T14:00:00Z",
-  },
-  {
-    id: 3,
-    name: "Yasmin",
-    attending: AttendingStatus.TIDAK_HADIR,
-    message: "123",
-    created_at: "2026-04-22T09:15:00Z",
-  },
-];
 
 function getAvatarColor(name: string): string {
   const colors = [
@@ -82,7 +58,8 @@ function getBadgeClass(status: AttendingStatus): string {
 }
 
 export default function RSVP() {
-  const [rsvps, setRsvps] = useState<RSVP[]>(SAMPLE_RSVPS);
+  const [rsvps, setRsvps] = useState<RSVP[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const [name, setName] = useState("");
@@ -90,27 +67,50 @@ export default function RSVP() {
   const [message, setMessage] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit() {
+  useEffect(() => {
+    fetch("/api/rsvp/")
+      .then((res) => res.json())
+      .then((data) => {
+        setRsvps(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  async function handleSubmit() {
     if (!name) {
       setError("Nama wajib diisi");
       return;
     }
     setSubmitting(true);
     setError(null);
-
-    const newRSVP: RSVP = {
-      id: Date.now(),
-      name,
-      attending,
-      message,
-      created_at: new Date().toISOString(),
-    };
-    setRsvps([...rsvps, newRSVP]);
-    setName("");
-    setAttending(null);
-    setMessage(null);
-    setSubmitting(false);
+    try {
+      const res = await fetch("/api/rsvp/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          attending: attending || null,
+          message: message || null,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      const newRSVP = await res.json();
+      setRsvps((prev) => [newRSVP, ...prev]); // ← ganti ini saja
+      setName("");
+      setAttending(null);
+      setMessage(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setSubmitting(false);
+    }
   }
+
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div className="section-form">
