@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
+import { apiFetch } from "../lib/api";
 
 const AttendingStatus = {
   HADIR: "hadir",
@@ -68,7 +69,7 @@ export default function RSVP() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    fetch("/api/rsvp/")
+    apiFetch("/api/rsvp/")
       .then((res) => res.json())
       .then((data) => {
         setRsvps(data);
@@ -88,7 +89,7 @@ export default function RSVP() {
     setSubmitting(true);
     setError(null);
     try {
-      const res = await fetch("/api/rsvp/", {
+      const res = await apiFetch("/api/rsvp/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

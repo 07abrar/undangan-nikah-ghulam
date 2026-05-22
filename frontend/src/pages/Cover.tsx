@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import { FALLBACK_GUEST_NAME } from "../const";
+import { apiFetch } from "../lib/api";
 
 type Props = {
   onOpen?: () => void;
@@ -15,7 +16,7 @@ export default function Cover({ onOpen }: Props) {
     if (!token) return;
 
     const controller = new AbortController();
-    fetch(`/api/guests/${encodeURIComponent(token)}`, {
+    apiFetch(`/api/guests/${encodeURIComponent(token)}`, {
       signal: controller.signal,
     })
       .then((res) => {
