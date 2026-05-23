@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BotanicalSVG from "../components/BotanicalSVG";
 import { Button } from "../components/Button";
 import { FALLBACK_GUEST_NAME } from "../const";
 import { apiFetch } from "../lib/api";
@@ -33,6 +34,7 @@ export default function Cover({ onOpen }: Props) {
 
   return (
     <div className="section-cover">
+      <BotanicalSVG />
       <div className="cover-top">
         <p className="plain-capital-text">Pernikahan</p>
 

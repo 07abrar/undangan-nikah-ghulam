@@ -399,19 +399,13 @@
 }
 
 /* ---- 9. [Page] Cover --------------------------------------- */
-/* Full-height hero. cover-top fills leftover space (names center
-   upper-middle); cover-bottom anchors guest + button at the foot,
-   so the button is always visible regardless of screen height. */
 .section-cover {
+  position: relative;
   min-height: 100vh;
-  /* dvh excludes the mobile URL bar so the button never clips. */
   min-height: 100dvh;
-  background-image: url("/assets/background/invitation_background.png");
-  background-repeat: repeat;
-  background-size: cover;
-  /* Break out of app-shell padding so background fills edge-to-edge */
+  overflow: hidden;
   margin: calc(-1 * var(--space-md));
-  padding: var(--space-xl) var(--space-md);
+  padding: 32px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -420,12 +414,70 @@
 
 @media (min-width: 768px) {
   .section-cover {
-    margin: calc(-1 * var(--space-md));
+    margin: calc(-1 * var(--space-lg));
     padding: var(--space-2xl) var(--space-lg);
   }
 }
 
+/* Botanical SVG wrapper + SVG fill the cover absolutely */
+.cover-botanical-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cover-botanical-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Botanical animations */
+@keyframes cover-falling {
+  0%   { transform: translate(0px,  -18px); opacity: 0; }
+  12%  { opacity: 0.85; }
+  88%  { opacity: 0.70; }
+  100% { transform: translate(10px,  60px); opacity: 0; }
+}
+
+@keyframes cover-sway {
+  0%   { transform: translate(0px,    0px); }
+  28%  { transform: translate(2px,   -7px); }
+  58%  { transform: translate(-1.5px,-10px); }
+  80%  { transform: translate(1px,   -5px); }
+  100% { transform: translate(0px,    0px); }
+}
+
+.cover-fall         { animation: cover-falling var(--t, 6s)  ease-in-out infinite; }
+.cover-float-corner { animation: cover-sway   var(--ct, 8s) ease-in-out infinite var(--cd, 0s); }
+
+/* Duration tokens for scattered floats */
+.cover-t-43 { --t: 4.3s; }
+.cover-t-46 { --t: 4.6s; }
+.cover-t-48 { --t: 4.8s; }
+.cover-t-51 { --t: 5.1s; }
+.cover-t-52 { --t: 5.2s; }
+.cover-t-55 { --t: 5.5s; }
+.cover-t-57 { --t: 5.7s; }
+.cover-t-58 { --t: 5.8s; }
+.cover-t-60 { --t: 6.0s; }
+.cover-t-61 { --t: 6.1s; }
+.cover-t-64 { --t: 6.4s; }
+.cover-t-72 { --t: 7.2s; }
+.cover-t-73 { --t: 7.3s; }
+
+/* Duration + delay tokens for corner clusters */
+.cover-ct-9  { --ct: 9s; }
+.cover-ct-10 { --ct: 10s; }
+.cover-cd-n14 { --cd: -1.4s; }
+.cover-cd-n38 { --cd: -3.8s; }
+
 .cover-top {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -436,6 +488,8 @@
 }
 
 .cover-bottom {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
