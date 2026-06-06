@@ -552,11 +552,17 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-xl) var(--space-md);
+  gap: var(--space-md);
 }
 
 @media (min-width: 768px) {
   .section-quote {
     padding: var(--space-2xl) var(--space-lg);
+    gap: var(--space-lg);
+  }
+
+  .section-quote > .card {
+    width: 100%;
   }
 }
 
